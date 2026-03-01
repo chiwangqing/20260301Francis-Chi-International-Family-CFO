@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Globe, 
   ChevronRight, 
   ShieldCheck, 
-  TrendingUp, 
   Cpu, 
-  Users, 
   Stethoscope, 
   MessageCircle, 
   PhoneCall,
-  CheckCircle2,
   AlertCircle,
   ArrowRight,
   Fingerprint,
   Quote
 } from 'lucide-react';
-import { translations, Language } from './translations';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import Header from './components/layout/Header';
+import Hero from './components/sections/Hero';
+import BrandStory from './components/sections/BrandStory';
+import QualificationsBar from './components/sections/QualificationsBar';
+import FloatingActionButton from './components/ui/FloatingActionButton';
+import { Language } from './translations';
 
 const langOptions: { code: Language; label: string }[] = [
   { code: 'TC', label: '繁體中文' },
@@ -25,8 +28,8 @@ const langOptions: { code: Language; label: string }[] = [
   { code: 'JP', label: '日本語' },
 ];
 
-const App: React.FC = () => {
-  const [lang, setLang] = useState<Language>('TC');
+const AppContent: React.FC = () => {
+  const { lang, setLang, t } = useLanguage();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     why: false,
     coreValues: false,
@@ -37,7 +40,6 @@ const App: React.FC = () => {
   });
   const [expandedTransformations, setExpandedTransformations] = useState<number | null>(null);
   const [expandedDiagnosis, setExpandedDiagnosis] = useState<number | null>(null);
-  const t = translations[lang];
 
   const toggleSection = (section: string) => {
     setExpanded(prev => ({ ...prev, [section]: !prev[section] }));
@@ -45,85 +47,7 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-midnight selection:bg-gold selection:text-midnight overflow-x-hidden">
-      {/* 1. Top Sticky Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 px-4 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center">
-              <Cpu className="text-midnight w-5 h-5" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-lg font-bold tracking-wider text-gold leading-none">FRANCIS CHI</span>
-              <span className="text-[8px] md:text-[10px] text-gold/70 font-medium tracking-tight mt-0.5 whitespace-nowrap">
-                财富池老C·Francis国际工作室（HK,CN,JP,SG,MC,TW,US)
-              </span>
-            </div>
-          </div>
-
-          <nav className="hidden lg:flex items-center gap-8">
-            <a 
-              href="#brand-story" 
-              className="flex items-center gap-2 text-soft-white/60 hover:text-gold transition-all group"
-            >
-              <Fingerprint className="w-6 h-6 group-hover:scale-125 transition-transform" />
-              <span className="text-xs font-bold uppercase tracking-widest">{t.brandStory.nav}</span>
-            </a>
-            <a 
-              href="#core-values" 
-              className="flex items-center gap-2 text-soft-white/60 hover:text-gold transition-all group"
-            >
-              <Cpu className="w-6 h-6 group-hover:scale-125 transition-transform" />
-              <span className="text-xs font-bold uppercase tracking-widest">{t.coreValues.title.split('？')[0]}</span>
-            </a>
-          </nav>
-          
-          <div className="flex items-center gap-2 md:gap-4">
-            <a 
-              href="#brand-story" 
-              className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-gold/10 text-gold border border-gold/20"
-            >
-              <Fingerprint className="w-5 h-5" />
-            </a>
-
-            <div className="hidden sm:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10">
-              {langOptions.map((opt) => (
-                <button
-                  key={opt.code}
-                  onClick={() => setLang(opt.code)}
-                  className={`text-[10px] font-bold px-3 py-1.5 rounded-full transition-all ${
-                    lang === opt.code 
-                      ? 'bg-gold text-midnight' 
-                      : 'text-soft-white/40 hover:text-gold'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-            
-            {/* Mobile view */}
-            <div className="sm:hidden flex items-center gap-1">
-               {langOptions.map((opt) => (
-                <button
-                  key={opt.code}
-                  onClick={() => setLang(opt.code)}
-                  className={`text-[10px] font-bold w-7 h-7 flex items-center justify-center rounded-full transition-all border ${
-                    lang === opt.code 
-                      ? 'bg-gold text-midnight border-gold' 
-                      : 'text-soft-white/40 border-white/10'
-                  }`}
-                >
-                  {opt.code}
-                </button>
-              ))}
-            </div>
-
-            <button className="bg-gold hover:bg-gold-light text-midnight text-[10px] md:text-xs font-bold px-3 md:px-4 py-2 rounded-full transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap">
-              {t.nav.book}
-            </button>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="pt-20">
         {/* Language Selection Section */}
@@ -151,114 +75,11 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* 2. Hero Section */}
-        <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 py-20 text-center circuit-pattern">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <h1 className="text-4xl md:text-6xl font-serif font-bold leading-tight mb-8 bg-gradient-to-b from-soft-white to-soft-white/60 bg-clip-text text-transparent">
-              {t.hero.title}
-            </h1>
-            <p className="text-soft-white/80 text-sm md:text-base leading-relaxed mb-12 max-w-2xl mx-auto">
-              {t.hero.subtitle}
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              {t.hero.badges.map((badge, i) => (
-                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full glass text-xs font-medium text-soft-white/90">
-                  <ShieldCheck className="w-4 h-4 text-gold" />
-                  {badge}
-                </div>
-              ))}
-            </div>
+        <Hero />
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="gold-gradient text-midnight font-bold px-8 py-4 rounded-full shadow-lg shadow-gold/20 flex items-center gap-2 mx-auto"
-            >
-              {t.nav.book}
-              <ChevronRight className="w-5 h-5" />
-            </motion.button>
-          </motion.div>
+        <QualificationsBar />
 
-          {/* Decorative background element */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-gradient-to-t from-gold/10 to-transparent blur-3xl -z-10" />
-        </section>
-
-        {/* Brand Story Section */}
-        <section id="brand-story" className="py-24 px-6 relative overflow-hidden">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="glass rounded-[3rem] p-8 md:p-16 border-gold/20 relative"
-            >
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-3xl bg-gold flex items-center justify-center shadow-2xl shadow-gold/20 rotate-12">
-                <Fingerprint className="text-midnight w-10 h-10" />
-              </div>
-
-              <div className="mt-8 text-center">
-                <h2 className="text-3xl md:text-4xl font-serif mb-8 text-gold-light">{t.brandStory.title}</h2>
-                
-                <div className="relative mb-12">
-                  <Quote className="absolute -top-4 -left-4 w-8 h-8 text-gold/20" />
-                  <p className="text-xl md:text-2xl font-serif italic text-soft-white leading-relaxed px-4">
-                    {t.brandStory.quote}
-                  </p>
-                  <Quote className="absolute -bottom-4 -right-4 w-8 h-8 text-gold/20 rotate-180" />
-                </div>
-
-                {/* Personal Gallery - Past, Present, Future */}
-                <div className="mb-16 -mx-4 md:-mx-8">
-                  <div className="flex overflow-x-auto no-scrollbar gap-4 px-4 md:px-8 pb-4 snap-x snap-mandatory">
-                    {t.brandStory.gallery.map((item, i) => (
-                      <motion.div 
-                        key={i}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.2 }}
-                        className="min-w-[280px] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group shrink-0 border border-white/10"
-                      >
-                        <img 
-                          src={`https://picsum.photos/seed/${item.seed}/800/600`} 
-                          alt={item.title} 
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                        <div className="absolute bottom-0 left-0 p-6 text-left">
-                          <span className="text-[10px] font-bold tracking-[0.3em] text-gold uppercase mb-1 block">{item.title}</span>
-                          <h4 className="text-xl font-serif text-soft-white">{item.desc}</h4>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="flex justify-center gap-2 mt-4">
-                    {t.brandStory.gallery.map((_, i) => (
-                      <div key={i} className="w-1.5 h-1.5 rounded-full bg-gold/20" />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-6 text-soft-white/70 text-base md:text-lg leading-relaxed text-left">
-                  {t.brandStory.content.map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-          
-          {/* Decorative circuit lines for brand story */}
-          <div className="absolute top-1/2 left-0 w-32 h-px bg-gradient-to-r from-gold/50 to-transparent" />
-          <div className="absolute top-1/2 right-0 w-32 h-px bg-gradient-to-l from-gold/50 to-transparent" />
-        </section>
+        <BrandStory />
 
         {/* Core Values Section */}
         <section id="core-values" className="py-24 px-6 bg-midnight/30 relative overflow-hidden">
@@ -637,7 +458,7 @@ const App: React.FC = () => {
         </section>
 
         {/* 7. CTA & Pricing (Section D) */}
-        <section className="py-24 px-6 bg-gradient-to-b from-midnight to-black">
+        <section id="pricing" className="py-24 px-6 bg-gradient-to-b from-midnight to-black">
           <div className="max-w-3xl mx-auto">
             {/* Black Card UI */}
             <motion.div 
@@ -734,6 +555,8 @@ const App: React.FC = () => {
         </div>
       </footer>
 
+      <FloatingActionButton />
+
       <style>{`
         html { scroll-behavior: smooth; }
         .perspective-1000 { perspective: 1000px; }
@@ -742,6 +565,14 @@ const App: React.FC = () => {
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 
