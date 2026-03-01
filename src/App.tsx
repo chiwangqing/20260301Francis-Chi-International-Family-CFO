@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Globe, 
@@ -44,6 +44,21 @@ const AppContent: React.FC = () => {
   const toggleSection = (section: string) => {
     setExpanded(prev => ({ ...prev, [section]: !prev[section] }));
   };
+
+  useEffect(() => {
+    if (t.seo) {
+      document.title = t.seo.title;
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', t.seo.description);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = 'description';
+        meta.content = t.seo.description;
+        document.head.appendChild(meta);
+      }
+    }
+  }, [lang, t.seo]);
 
   return (
     <div className="min-h-screen bg-midnight selection:bg-gold selection:text-midnight overflow-x-hidden">

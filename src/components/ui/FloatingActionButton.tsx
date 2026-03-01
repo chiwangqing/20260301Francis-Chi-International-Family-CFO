@@ -100,10 +100,15 @@ const FloatingActionButton: React.FC = () => {
                         <div className="bg-white p-4 rounded-2xl shadow-inner mt-2 flex flex-col items-center gap-2">
                           <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden relative">
                             <img 
-                              src="./assets/Francis%20Wechat.jpg" 
+                              src="/assets/Francis%20Wechat.jpg" 
                               alt="WeChat QR" 
                               className="w-full h-full object-cover"
                               referrerPolicy="no-referrer"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.onerror = null;
+                                target.src = "https://placehold.co/400x400/f8fafc/d4af37?text=WeChat+QR+Missing%0APlease+upload+to+public/assets";
+                              }}
                             />
                           </div>
                           <p className="text-[10px] text-midnight/60 font-bold text-center px-2">
@@ -147,10 +152,15 @@ const FloatingActionButton: React.FC = () => {
                         <div className="bg-white p-4 rounded-2xl shadow-inner mt-2 flex flex-col items-center gap-2">
                           <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden relative">
                             <img 
-                              src="./assets/Francis%20Whatsapp.jpg" 
+                              src="/assets/Francis%20Whatsapp.jpg" 
                               alt="WhatsApp QR" 
                               className="w-full h-full object-cover"
                               referrerPolicy="no-referrer"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.onerror = null;
+                                target.src = "https://placehold.co/400x400/f8fafc/3b82f6?text=WhatsApp+QR+Missing%0APlease+upload+to+public/assets";
+                              }}
                             />
                           </div>
                           <p className="text-[10px] text-midnight/60 font-bold text-center px-2">

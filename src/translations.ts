@@ -2,6 +2,10 @@ export type Language = 'TC' | 'SC' | 'EN' | 'JP';
 
 export const translations = {
   TC: {
+    seo: {
+      title: 'Francis Chi | 國際家族辦公室 CFO | 駕馭財富秩序',
+      description: '為全球高淨值家族提供晶片級精度的財富架構設計與傳承服務。',
+    },
     nav: {
       book: '預約諮詢',
     },
@@ -225,6 +229,10 @@ export const translations = {
     },
   },
   SC: {
+    seo: {
+      title: 'Francis Chi | 国际家族办公室 CFO | 驾驭财富秩序',
+      description: '为全球高净值家族提供芯片级精度的财富架构设计与传承服务。',
+    },
     nav: {
       book: '预约咨询',
     },
@@ -448,6 +456,10 @@ export const translations = {
     },
   },
   EN: {
+    seo: {
+      title: 'Francis Chi | International Family Office CFO | Mastering Wealth Order',
+      description: 'Providing chip-level precision in wealth structural design for global UHNW families.',
+    },
     nav: {
       book: 'Book Consultation',
     },
@@ -671,6 +683,10 @@ export const translations = {
     },
   },
   JP: {
+    seo: {
+      title: 'Francis Chi | 国際ファミリーオフィスCFO | 資産の秩序を統べる',
+      description: 'グローバルな超富裕層ファミリー向けに、半導体レベルの精度で資産構造設計と継承サービスを提供します。',
+    },
     nav: {
       book: '相談を予約する',
     },
