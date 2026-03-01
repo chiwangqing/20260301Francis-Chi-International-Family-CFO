@@ -7,6 +7,7 @@ const FloatingActionButton: React.FC = () => {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [showWeChatQR, setShowWeChatQR] = useState(false);
+  const [showWhatsAppQR, setShowWhatsAppQR] = useState(false);
 
   const scrollToPricing = () => {
     const element = document.getElementById('pricing');
@@ -97,10 +98,17 @@ const FloatingActionButton: React.FC = () => {
                         className="overflow-hidden"
                       >
                         <div className="bg-white p-4 rounded-2xl shadow-inner mt-2 flex flex-col items-center gap-2">
-                          <div className="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center">
-                            <QrCode className="w-24 h-24 text-midnight" />
+                          <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden relative">
+                            <img 
+                              src="./assets/Francis%20Wechat.jpg" 
+                              alt="WeChat QR" 
+                              className="w-full h-full object-cover"
+                              referrerPolicy="no-referrer"
+                            />
                           </div>
-                          <p className="text-[10px] text-midnight/40 font-bold uppercase tracking-widest">Scan QR Code</p>
+                          <p className="text-[10px] text-midnight/60 font-bold text-center px-2">
+                            长按识别，即刻启动您的全球财富秩序设计
+                          </p>
                         </div>
                       </motion.div>
                     )}
@@ -108,18 +116,51 @@ const FloatingActionButton: React.FC = () => {
                 </div>
 
                 {/* WhatsApp Option */}
-                <button 
-                  onClick={() => window.open('https://wa.me/yournumber', '_blank')}
-                  className="w-full flex items-center gap-4 p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-all text-blue-500 font-bold"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                    <PhoneCall className="w-6 h-6" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-sm">WhatsApp</div>
-                    <div className="text-[10px] opacity-60 font-medium">Direct Message</div>
-                  </div>
-                </button>
+                <div className="relative">
+                  <button 
+                    onClick={() => setShowWhatsAppQR(!showWhatsAppQR)}
+                    className={`w-full flex items-center gap-4 p-4 rounded-2xl transition-all font-bold ${
+                      showWhatsAppQR 
+                        ? 'bg-blue-500 text-white' 
+                        : 'bg-blue-500/10 border border-emerald-500/20 text-blue-500 hover:bg-blue-500/20'
+                    }`}
+                  >
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${showWhatsAppQR ? 'bg-white/20' : 'bg-blue-500/20'}`}>
+                      <PhoneCall className="w-6 h-6" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-sm">WhatsApp</div>
+                      <div className="text-[10px] opacity-60 font-medium">
+                        {showWhatsAppQR ? 'Click to Hide' : 'Click to Show QR'}
+                      </div>
+                    </div>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {showWhatsAppQR && (
+                      <motion.div 
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="bg-white p-4 rounded-2xl shadow-inner mt-2 flex flex-col items-center gap-2">
+                          <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden relative">
+                            <img 
+                              src="./assets/Francis%20Whatsapp.jpg" 
+                              alt="WhatsApp QR" 
+                              className="w-full h-full object-cover"
+                              referrerPolicy="no-referrer"
+                            />
+                          </div>
+                          <p className="text-[10px] text-midnight/60 font-bold text-center px-2">
+                            长按识别，即刻启动您的全球财富秩序设计
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 <div className="pt-4 border-t border-white/5">
                   <button 

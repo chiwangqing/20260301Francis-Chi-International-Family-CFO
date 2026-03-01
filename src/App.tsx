@@ -458,7 +458,7 @@ const AppContent: React.FC = () => {
         </section>
 
         {/* 7. CTA & Pricing (Section D) */}
-        <section id="pricing" className="py-24 px-6 bg-gradient-to-b from-midnight to-black">
+        <section id="pricing" className="py-24 px-6 bg-gradient-to-b from-midnight to-black relative z-50">
           <div className="max-w-3xl mx-auto">
             {/* Black Card UI */}
             <motion.div 
