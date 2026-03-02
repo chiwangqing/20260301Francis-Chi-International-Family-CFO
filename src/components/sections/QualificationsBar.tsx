@@ -24,7 +24,7 @@ const QualificationsBar: React.FC = () => {
 
   return (
     <section className="py-8 overflow-hidden bg-midnight/30 border-y border-white/5 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 mb-4">
+      <div className="max-w-screen-2xl mx-auto px-6 mb-4">
         <div className="flex items-center gap-2 text-gold/60 text-[10px] uppercase tracking-[0.3em] font-bold">
           <div className="w-8 h-px bg-gold/30" />
           Professional Qualifications

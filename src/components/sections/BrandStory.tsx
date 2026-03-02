@@ -8,7 +8,7 @@ const BrandStory: React.FC = () => {
 
   return (
     <section id="brand-story" className="py-24 px-6 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,69 +28,6 @@ const BrandStory: React.FC = () => {
                 {t.brandStory.quote}
               </p>
               <Quote className="absolute -bottom-4 -right-4 w-8 h-8 text-gold/20 rotate-180" />
-            </div>
-
-            {/* Personal Gallery - Infinite Marquee for 25 Images */}
-            <div className="mb-16 -mx-6 md:-mx-16 overflow-hidden relative">
-              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-midnight to-transparent z-10" />
-              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-midnight to-transparent z-10" />
-              
-              <motion.div 
-                className="flex gap-4 px-4 w-max"
-                animate={{ x: [0, "-50%"] }}
-                transition={{ 
-                  duration: 60, 
-                  repeat: Infinity, 
-                  ease: "linear" 
-                }}
-              >
-                {[...Array(25)].map((_, i) => (
-                  <div 
-                    key={i}
-                    className="w-[200px] md:w-[300px] aspect-[3/4] relative rounded-2xl overflow-hidden shrink-0 border border-white/10 group"
-                  >
-                    <img 
-                      src={`./assets/gallery/story-${i + 1}.png?v=2026`} 
-                      alt={`Story ${i + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        if (target.src.includes('.png')) {
-                          target.src = target.src.replace('.png', '.jpg');
-                        } else {
-                          target.onerror = null;
-                          target.src = `https://picsum.photos/seed/story-${i + 1}/600/800`;
-                        }
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                ))}
-                {/* Duplicate for seamless loop */}
-                {[...Array(25)].map((_, i) => (
-                  <div 
-                    key={`dup-${i}`}
-                    className="w-[200px] md:w-[300px] aspect-[3/4] relative rounded-2xl overflow-hidden shrink-0 border border-white/10 group"
-                  >
-                    <img 
-                      src={`./assets/gallery/story-${i + 1}.png?v=2026`} 
-                      alt={`Story ${i + 1}`} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      referrerPolicy="no-referrer"
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        if (target.src.includes('.png')) {
-                          target.src = target.src.replace('.png', '.jpg');
-                        } else {
-                          target.onerror = null;
-                          target.src = `https://picsum.photos/seed/story-${i + 1}/600/800`;
-                        }
-                      }}
-                    />
-                  </div>
-                ))}
-              </motion.div>
             </div>
 
             <div className="space-y-6 text-soft-white/70 text-base md:text-lg leading-relaxed text-left">

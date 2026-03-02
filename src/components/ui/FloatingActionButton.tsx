@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MessageCircle, X, PhoneCall, QrCode } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
+import { ASSETS } from '../../constants';
 
 const FloatingActionButton: React.FC = () => {
   const { t } = useLanguage();
@@ -26,7 +27,7 @@ const FloatingActionButton: React.FC = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 z-[60] w-16 h-16 rounded-full gold-gradient shadow-[0_10px_30px_rgba(212,175,55,0.4)] flex items-center justify-center text-midnight group"
+        className="fixed bottom-6 right-6 z-[60] w-16 h-16 rounded-full gold-gradient shadow-[0_10px_30px_rgba(212,175,55,0.4)] flex items-center justify-center text-midnight group"
         id="fab-book"
       >
         <MessageCircle className="w-8 h-8 group-hover:rotate-12 transition-transform" />
@@ -50,7 +51,7 @@ const FloatingActionButton: React.FC = () => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed bottom-28 right-8 z-[80] w-[320px] glass rounded-[2.5rem] border-gold/30 p-8 shadow-2xl overflow-hidden"
+              className="fixed bottom-24 right-6 z-[80] w-[320px] glass rounded-[2.5rem] border-gold/30 p-8 shadow-2xl overflow-hidden"
             >
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
               
@@ -100,18 +101,13 @@ const FloatingActionButton: React.FC = () => {
                         <div className="bg-white p-4 rounded-2xl shadow-inner mt-2 flex flex-col items-center gap-2">
                           <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden relative">
                             <img 
-                              src={`./assets/wechat.png?v=2026`} 
+                              src={ASSETS.WECHAT} 
                               alt="WeChat QR" 
                               className="w-full h-full object-cover"
                               referrerPolicy="no-referrer"
+                              loading="lazy"
                               onError={(e) => {
-                                const target = e.currentTarget;
-                                if (target.src.includes('.png')) {
-                                  target.src = target.src.replace('.png', '.jpg');
-                                } else {
-                                  target.onerror = null;
-                                  target.src = "https://placehold.co/400x400/f8fafc/d4af37?text=WeChat+QR+Missing%0APath:+./assets/wechat.png";
-                                }
+                                (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/059669/FFFFFF?text=WeChat+QR+Unavailable';
                               }}
                             />
                           </div>
@@ -156,18 +152,13 @@ const FloatingActionButton: React.FC = () => {
                         <div className="bg-white p-4 rounded-2xl shadow-inner mt-2 flex flex-col items-center gap-2">
                           <div className="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden relative">
                             <img 
-                              src={`./assets/whatsapp.png?v=2026`} 
+                              src={ASSETS.WHATSAPP} 
                               alt="WhatsApp QR" 
                               className="w-full h-full object-cover"
                               referrerPolicy="no-referrer"
+                              loading="lazy"
                               onError={(e) => {
-                                const target = e.currentTarget;
-                                if (target.src.includes('.png')) {
-                                  target.src = target.src.replace('.png', '.jpg');
-                                } else {
-                                  target.onerror = null;
-                                  target.src = "https://placehold.co/400x400/f8fafc/3b82f6?text=WhatsApp+QR+Missing%0APath:+./assets/whatsapp.png";
-                                }
+                                (e.target as HTMLImageElement).src = 'https://placehold.co/400x400/3B82F6/FFFFFF?text=WhatsApp+QR+Unavailable';
                               }}
                             />
                           </div>
