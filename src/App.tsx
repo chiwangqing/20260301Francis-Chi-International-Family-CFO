@@ -36,7 +36,7 @@ const AppContent: React.FC = () => {
     uniqueValue: false,
     pillars: false,
     offers: false,
-    pricing: false
+    pricing: true
   });
   const [expandedTransformations, setExpandedTransformations] = useState<number | null>(null);
   const [expandedDiagnosis, setExpandedDiagnosis] = useState<number | null>(null);

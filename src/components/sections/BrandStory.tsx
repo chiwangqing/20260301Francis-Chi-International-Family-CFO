@@ -30,37 +30,59 @@ const BrandStory: React.FC = () => {
               <Quote className="absolute -bottom-4 -right-4 w-8 h-8 text-gold/20 rotate-180" />
             </div>
 
-            {/* Personal Gallery - Past, Present, Future */}
-            <div className="mb-16 -mx-4 md:-mx-8">
-              <div className="flex overflow-x-auto no-scrollbar gap-4 px-4 md:px-8 pb-4 snap-x snap-mandatory">
-                {t.brandStory.gallery.map((item, i) => (
-                  <motion.div 
+            {/* Personal Gallery - Infinite Marquee for 25 Images */}
+            <div className="mb-16 -mx-6 md:-mx-16 overflow-hidden relative">
+              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-midnight to-transparent z-10" />
+              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-midnight to-transparent z-10" />
+              
+              <motion.div 
+                className="flex gap-4 px-4 w-max"
+                animate={{ x: [0, "-50%"] }}
+                transition={{ 
+                  duration: 60, 
+                  repeat: Infinity, 
+                  ease: "linear" 
+                }}
+              >
+                {[...Array(25)].map((_, i) => (
+                  <div 
                     key={i}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.2 }}
-                    className="min-w-[280px] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group shrink-0 border border-white/10"
+                    className="w-[200px] md:w-[300px] aspect-[3/4] relative rounded-2xl overflow-hidden shrink-0 border border-white/10 group"
                   >
                     <img 
-                      src={`https://picsum.photos/seed/${item.seed}/800/600`} 
-                      alt={item.title} 
+                      src={`/assets/story/story-${i + 1}.jpg?v=1`} 
+                      alt={`Story ${i + 1}`} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = `https://picsum.photos/seed/story-${i + 1}/600/800`;
+                      }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
-                    <div className="absolute bottom-0 left-0 p-6 text-left">
-                      <span className="text-[10px] font-bold tracking-[0.3em] text-gold uppercase mb-1 block">{item.title}</span>
-                      <h4 className="text-xl font-serif text-soft-white">{item.desc}</h4>
-                    </div>
-                  </motion.div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </div>
                 ))}
-              </div>
-              <div className="flex justify-center gap-2 mt-4">
-                {t.brandStory.gallery.map((_, i) => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-gold/20" />
+                {/* Duplicate for seamless loop */}
+                {[...Array(25)].map((_, i) => (
+                  <div 
+                    key={`dup-${i}`}
+                    className="w-[200px] md:w-[300px] aspect-[3/4] relative rounded-2xl overflow-hidden shrink-0 border border-white/10 group"
+                  >
+                    <img 
+                      src={`/assets/story/story-${i + 1}.jpg?v=1`} 
+                      alt={`Story ${i + 1}`} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = `https://picsum.photos/seed/story-${i + 1}/600/800`;
+                      }}
+                    />
+                  </div>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
             <div className="space-y-6 text-soft-white/70 text-base md:text-lg leading-relaxed text-left">
