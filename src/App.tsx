@@ -22,6 +22,7 @@ import WorkScenes from './components/sections/WorkScenes';
 import CoreValues from './components/sections/CoreValues';
 import QualificationsBar from './components/sections/QualificationsBar';
 import FloatingActionButton from './components/ui/FloatingActionButton';
+import WealthDiagnosis from './components/sections/WealthDiagnosis';
 import { Language } from './translations';
 
 const langOptions: { code: Language; label: string }[] = [
@@ -40,6 +41,7 @@ const AppContent: React.FC = () => {
     pricing: false
   });
   const [expandedDiagnosis, setExpandedDiagnosis] = useState<number | null>(null);
+  const [showDiagnosis, setShowDiagnosis] = useState(false);
 
   const toggleSection = (section: string) => {
     setExpanded(prev => ({ ...prev, [section]: !prev[section] }));
@@ -62,7 +64,7 @@ const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-midnight selection:bg-gold selection:text-midnight overflow-x-hidden">
-      <Header />
+      <Header onOpenDiagnosis={() => setShowDiagnosis(true)} />
 
       <main className="pt-20">
         {/* Language Selection Section */}
@@ -90,7 +92,9 @@ const AppContent: React.FC = () => {
           </div>
         </section>
 
-        <Hero />
+        <Hero onOpenDiagnosis={() => setShowDiagnosis(true)} />
+
+        <WorkScenes />
 
         <QualificationsBar />
 
@@ -117,8 +121,6 @@ const AppContent: React.FC = () => {
                 <ChevronRight className="w-8 h-8 rotate-90" />
               </motion.div>
             </div>
-            
-            <WorkScenes />
             
             <AnimatePresence>
               {expanded.why && (
@@ -241,7 +243,10 @@ const AppContent: React.FC = () => {
                   </motion.div>
                 ))}
                 
-                <button className="w-full gold-gradient text-midnight font-bold px-8 py-4 rounded-full flex items-center justify-center gap-3 transition-all mt-8">
+                <button 
+                  onClick={() => setShowDiagnosis(true)}
+                  className="w-full gold-gradient text-midnight font-bold px-8 py-4 rounded-full flex items-center justify-center gap-3 transition-all mt-8"
+                >
                   <Stethoscope className="w-5 h-5" />
                   {t.diagnosis.btn}
                 </button>
@@ -396,7 +401,10 @@ const AppContent: React.FC = () => {
                         <span className="text-4xl font-bold text-gold">{t.pricing.current}</span>
                       </div>
                       
-                      <button className="w-full gold-gradient text-midnight font-bold py-5 rounded-2xl shadow-2xl shadow-gold/20 hover:scale-[1.02] active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3">
+                      <button 
+                        onClick={() => setShowDiagnosis(true)}
+                        className="w-full gold-gradient text-midnight font-bold py-5 rounded-2xl shadow-2xl shadow-gold/20 hover:scale-[1.02] active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3"
+                      >
                         <MessageCircle className="w-6 h-6" />
                         {t.pricing.cta}
                       </button>
@@ -433,7 +441,13 @@ const AppContent: React.FC = () => {
         </div>
       </footer>
 
-      <FloatingActionButton />
+      <FloatingActionButton onOpenDiagnosis={() => setShowDiagnosis(true)} />
+
+      <AnimatePresence>
+        {showDiagnosis && (
+          <WealthDiagnosis onClose={() => setShowDiagnosis(false)} />
+        )}
+      </AnimatePresence>
 
       <style>{`
         html { scroll-behavior: smooth; }

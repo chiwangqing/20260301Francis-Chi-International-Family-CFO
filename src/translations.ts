@@ -7,13 +7,12 @@ export const translations = {
       description: '為全球高淨值家族提供晶片級精度的財富架構設計與傳承服務。',
     },
     nav: {
-      book: '預約諮詢',
+      book: '360 財富診斷',
     },
     hero: {
       title: '駕馭財富秩序，守護世代自由。',
       subtitle: '在複雜的全球變局中，您的資產需要一位「首席指揮官」與「跨界翻譯官」。我將 Intel 晶圓工程師的納米級精度與 CFA 的金融宏觀視野相結合，為您的家族資產編寫底層代碼，構築跨越時代的傳世基業。',
       badges: [
-        'CFA 特許金融分析師', 
         'MDRT 百萬圓桌會員', 
         '前 Intel 工程師',
         '前全球頭部中介風險管理事務所創始人',
@@ -234,13 +233,12 @@ export const translations = {
       description: '为全球高净值家族提供芯片级精度的财富架构设计与传承服务。',
     },
     nav: {
-      book: '预约咨询',
+      book: '360 财富诊断',
     },
     hero: {
       title: '驾驭财富秩序，守护世代自由。',
       subtitle: '在复杂的全球变局中，您的资产需要一位「首席指挥官」与「跨界翻译官」。我将 Intel 晶圆工程师的纳米级精度与 CFA 的金融宏观视野相结合，为您的家族资产编写底层代码，构筑跨越时代的传世基业。',
       badges: [
-        'CFA 特许金融分析师', 
         'MDRT 百万圆桌会员', 
         '前 Intel 工程师',
         '前全球头部中介风险管理事务所创始人',
@@ -461,13 +459,12 @@ export const translations = {
       description: 'Providing chip-level precision in wealth structural design for global UHNW families.',
     },
     nav: {
-      book: 'Book Consultation',
+      book: '360 Wealth Diagnosis',
     },
     hero: {
       title: 'Master the Order of Wealth. Embrace Generational Freedom.',
       subtitle: 'In a fragmented global landscape, your legacy demands Strategic Alignment. Bridging Intel’s engineering precision with a CFA’s multi-generational vision, I act as your dedicated Family CFO—architecting the underlying code for your family’s ultimate freedom.',
       badges: [
-        'CFA Charterholder', 
         'MDRT Member', 
         'Ex-Intel Engineer',
         'Founder of Global Risk Management Firm',
@@ -688,18 +685,17 @@ export const translations = {
       description: 'グローバルな超富裕層ファミリー向けに、半導体レベルの精度で資産構造設計と継承サービスを提供します。',
     },
     nav: {
-      book: '相談を予約する',
+      book: '360 資産診断',
     },
     hero: {
       title: '秩序ある富の管理が、世代を超える自由を約束する。',
       subtitle: '複雑化する国際情勢の中、資産を守るには各分野を統括する「指揮官」が必要です。Intelのエンジニアリング精度とCFAの金融ビジョンを融合し、専属の国際ファミリーCFOとして、貴家の資産に揺るぎない基盤（コード）を構築いたします。',
       badges: [
-        'CFA 証券アナリスト', 
         'MDRT 会員', 
         '元 Intel エンジニア',
         'グローバルリスク管理事務所創設者',
         '中日港三修士号 🇨🇳🇯🇵🇭🇰',
-        '香港恒生大学知識交流学院 IKE',
+        '香港恒生大学知识交流学院 IKE',
         '香港華人家族財産継承研究センター',
         '胤源グローバル家族統治研究院',
         '80年代生まれ | 太陽：牡牛座 & 上昇：蠍座 | AB型',

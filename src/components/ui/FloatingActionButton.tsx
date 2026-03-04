@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { MessageCircle, X, PhoneCall, QrCode } from 'lucide-react';
+import { MessageCircle, X, PhoneCall, QrCode, BarChart3 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { ASSETS } from '../../constants';
 
-const FloatingActionButton: React.FC = () => {
+const FloatingActionButton: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) => {
   const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [showWeChatQR, setShowWeChatQR] = useState(false);
   const [showWhatsAppQR, setShowWhatsAppQR] = useState(false);
+
+  const handleStartDiagnosis = () => {
+    setIsOpen(false);
+    onOpenDiagnosis();
+  };
 
   const scrollToPricing = () => {
     const element = document.getElementById('pricing');
@@ -69,6 +74,26 @@ const FloatingActionButton: React.FC = () => {
               </div>
 
               <div className="space-y-4">
+                {/* Diagnosis Option - NEW */}
+                <button 
+                  onClick={handleStartDiagnosis}
+                  className="w-full flex items-center gap-4 p-4 rounded-2xl bg-gold text-midnight font-bold hover:scale-[1.02] transition-all shadow-lg shadow-gold/20"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-midnight/10 flex items-center justify-center">
+                    <BarChart3 className="w-6 h-6" />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-sm">{t.nav.book}</div>
+                    <div className="text-[10px] opacity-60 font-medium">Start 3-Min Scan</div>
+                  </div>
+                </button>
+
+                <div className="flex items-center gap-2 py-2">
+                  <div className="h-px flex-1 bg-white/10" />
+                  <span className="text-[10px] text-soft-white/20 uppercase tracking-widest font-bold">Or Direct Contact</span>
+                  <div className="h-px flex-1 bg-white/10" />
+                </div>
+
                 {/* WeChat Option */}
                 <div className="relative">
                   <button 

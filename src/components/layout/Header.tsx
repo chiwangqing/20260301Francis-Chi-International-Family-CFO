@@ -10,7 +10,7 @@ const langOptions: { code: Language; label: string }[] = [
   { code: 'JP', label: '日本語' },
 ];
 
-const Header: React.FC = () => {
+const Header: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) => {
   const { lang, setLang, t } = useLanguage();
 
   return (
@@ -70,12 +70,12 @@ const Header: React.FC = () => {
           </div>
           
           {/* Mobile view */}
-          <div className="sm:hidden flex items-center gap-1">
+          <div className="sm:hidden flex items-center gap-0.5">
              {langOptions.map((opt) => (
               <button
                 key={opt.code}
                 onClick={() => setLang(opt.code)}
-                className={`text-[10px] font-bold w-7 h-7 flex items-center justify-center rounded-full transition-all border ${
+                className={`text-[9px] font-bold w-6 h-6 flex items-center justify-center rounded-full transition-all border ${
                   lang === opt.code 
                     ? 'bg-gold text-midnight border-gold' 
                     : 'text-soft-white/40 border-white/10'
@@ -86,7 +86,10 @@ const Header: React.FC = () => {
             ))}
           </div>
 
-          <button className="bg-gold hover:bg-gold-light text-midnight text-[10px] md:text-xs font-bold px-3 md:px-4 py-2 rounded-full transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap">
+          <button 
+            onClick={onOpenDiagnosis}
+            className="bg-gold hover:bg-gold-light text-midnight text-[10px] md:text-xs font-bold px-3 md:px-4 py-2 rounded-full transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap"
+          >
             {t.nav.book}
           </button>
         </div>
