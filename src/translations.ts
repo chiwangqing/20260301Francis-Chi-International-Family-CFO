@@ -12,17 +12,24 @@ export const translations = {
       services: '核心服務',
       vip: 'VIP 專區',
       book: '360 財富診斷',
+      tagline: '您家庭專屬 VIP 超級經紀人',
     },
     hero: {
-      title: '用芯片級的精密度，為您構筑跨越週期的家族基業。',
-      subtitle: '我是池望青（Francis）。從 Intel 晶圓預處理工程師 到管理規模超 10 億美金 的家族 CFO。拥有 10 年+ 跨境金融经验，持 CFA、RFP 及 香港保监局核心牌照。我不推销单一产品，我为您的家族资产编写最坚固的「底层安全代码」。',
+      title: '我是財富池老C·Francis\n您的家庭財富醫生╳財富工程師╳財富翻譯官',
+      subtitle: '我是池望青（Francis）。從 Intel 晶圓預處理工程師 到管理規模超 10 億美金 的家族 CFO。擁有 10 年+ 跨境金融經驗，持 CFA、RFP 及 香港保監局核心牌照。我不推銷單一產品，我為您的家族資產編寫最堅固的「底層安全代碼」。',
       cta: '👉 領取 1680 元 VIP 專屬 3D 財富問診',
       limit: '每月僅限 5 位高淨值家族，打造專屬 SLA 服務協議。',
       badges: [
         '前 Intel 資深工程師',
         'CFA 協會會員 / RFP',
         '香港保監局 IA 持牌人',
-        '胤源集團高級總監'
+        '胤源集團高級總監',
+        '中日港三碩士',
+        '華人家族財富研究中心',
+        '胤源家族治理研究院研究院',
+        '香港恒生大學商學院創業管理碩士',
+        '日本早稻田大學碩士',
+        '前世界TOP20仲介風險管理事務所創始人'
       ],
     },
     qualificationsLabel: '專業資格',
@@ -100,96 +107,128 @@ export const translations = {
       items: [
         {
           icon: '🌐',
-          title: '創富 | 全球資產配置與稅務優化',
-          desc: '鏈接全球頂尖私行與外部資管 (EAM)，以機構級費率佈局美元與離岸資產，合法優化全球稅務結構。',
+          title: '創富',
+          desc: '全球資產配置與稅務優化',
+          products: [
+            '全球資產配置 (Global Allocation)',
+            '離岸稅務優化 (Tax Optimization)',
+            '外部資產管理 (EAM Services)',
+            '美元債券組合 (USD Bond Portfolio)',
+            '私行開戶服務 (Private Banking)',
+            '家族辦公室架構 (Family Office Setup)'
+          ]
         },
         {
           icon: '⚖️',
-          title: '守富 | 家族信託與跨境法律框架',
-          desc: '設立海外控股公司與離岸信託，打造企業與個人資產的終極防火牆，防範婚姻與債務風險。',
+          title: '守富',
+          desc: '家族信託與跨境法律框架',
+          products: [
+            '家族信託設立 (Family Trust)',
+            '跨境法律框架 (Legal Framework)',
+            '資產隔離防火牆 (Asset Isolation)',
+            '婚姻資產保全 (Marital Protection)',
+            '債務風險隔離 (Debt Protection)',
+            '離岸控股公司 (Offshore Holding)'
+          ]
         },
         {
           icon: '🛡️',
-          title: '傳富 | 高階保險與流動性管理',
-          desc: '靈活運用保費融資槓桿，將「免稅傳承」與「投資遞延」完美結合，解決跨代流動性難題。',
+          title: '傳富',
+          desc: '高階保險與流動性管理',
+          products: [
+            '高階大額保單 (Jumbo Insurance)',
+            '保單信託架構 (Policy Trust)',
+            '跨代流動性管理 (Liquidity)',
+            '免稅傳承設計 (Tax-free Legacy)',
+            '保費融資槓桿 (Premium Finance)',
+            '遺囑與遺產規劃 (Estate Planning)'
+          ]
         },
         {
           icon: '🎓',
-          title: '享富 | 後代教育與家族辦公室治理',
-          desc: '從香港/海外身份規劃、頂尖名校留學，到家族憲章制定與二代接班人培養。',
+          title: '享富',
+          desc: '後代教育與家族辦公室治理',
+          products: [
+            '後代教育規劃 (Education Plan)',
+            '香港/海外身份 (Residency)',
+            '家族憲章制定 (Constitution)',
+            '接班人培養 (Successor Training)',
+            '日本頂級大健康 (Japan Medical)',
+            '家族公益慈善 (Philanthropy)'
+          ]
         },
       ],
     },
     offers: {
-      title: '三大特色服務 (稀缺資源)',
+      title: '國際TOP3特色',
       items: [
         {
-          title: 'The Legacy Shield (保單信託)',
+          title: '保單信託',
           desc: '攜手 Solid Rock 灜盛託管，一張保單即可啟動的迷你家族辦公室。極低門檻實現身故理賠金的定向傳承與絕對債務隔離。',
         },
         {
-          title: 'The Global Growth Engine (VUL + EAM 雙核驅動)',
+          title: 'VUL+EAM雙核驅動',
           desc: '利用 VUL 強大的稅務遞延優勢作為「容器」，內核搭載 EAM 的全球主動管理能力。實現「資產隔離」與「超額增值」。',
         },
         {
-          title: 'The Elite Health (日本頂級大健康)',
+          title: '日本大健康',
           desc: '直通馬雲、劉強東同級別的日本 VIP 醫療資源。由池老師團隊提供專屬通道，涵蓋精密癌篩與幹細胞抗衰。',
         },
       ],
     },
     pricing: {
-      title: 'The Francis Chi Privilege —— 您的專屬 CFO 服務級別協議 (SLA)',
+      title: '池老師 VIP 8 大權益',
       intro: '為了保證工程師級別的交付質量，我每月僅接受 5 位 高淨值家族的深度戰略諮詢。支付 1,680 元預約問診，即可解鎖這套價值 16,800 HKD 的家族 CFO 級別底層梳理服務。',
       original: '總價值 16,800 HKD',
       current: '限時預約 ¥1,680',
       privileges: [
         {
           icon: '🧬',
-          title: '家族全景圖譜 (Family Mapping)',
-          value: '以人為本的頂層架構起點。',
+          title: '家族全景圖譜',
+          value: '以人為本的架構起點',
           detail: '建立並長期更新家族系圖，明確家庭每一位成員的健康狀況、現有保障缺口、隱憂以及未來的傳承心願掃描。'
         },
         {
           icon: '📊',
-          title: '4+1 資產全景盤點 (Asset Audit)',
-          value: '家族資產負債表的「核磁共振」。',
-          detail: '基於獨創的「4+1 模型」，對您現有的資產狀況進行短、中、長期的結構性盤點與風險壓力測試，提供深度的資產負債表分析。'
+          title: '4+1 資產全景盤點',
+          value: '資產負債表「核磁共振」',
+          detail: '基於獨創的「4+1 模型」，對您現有的資產狀況進行短、中、長期的結構性盤點與風險壓力測試。'
         },
         {
           icon: '⏳',
-          title: '未來 30 年現金流沙盤 (Cash Flow Simulation)',
-          value: '確保現金流與家族生命等長。',
-          detail: '繪製家庭未來藍圖，針對子女教育、醫療、婚姻、創業，以及父母養老與財富傳承，進行精準的未來現金流規劃、分析與設計。'
+          title: '未來 30 年現金流沙盤',
+          value: '確保現金流與家族生命等長',
+          detail: '針對子女教育、醫療、婚姻、創業，以及父母養老與財富傳承，進行精準的未來現金流規劃與設計。'
         },
         {
           icon: '🛡️',
-          title: '家族保單全託管 (Policy Stewardship)',
-          value: '拒絕「孤兒單」，建立全球保障防禦網。',
-          detail: '全面分析全家族目前已有的保障（涵蓋中國大陸、香港及海外保單），為您建立專屬電子檔案，提供一站式的保單權益查詢、管理與理賠閉環服務。[單項價值 ¥8,000]'
+          title: '家族保單全託管',
+          value: '拒絕「孤兒單」，建立防禦網',
+          detail: '全面分析全家族目前已有的全球保障，為您建立專屬電子檔案，提供一站式的查詢、管理與理賠服務。'
         },
         {
           icon: '🌐',
-          title: '全球架構與投資方案定制 2.0 (Global Architecture)',
-          value: '跨越司法管轄區的財富佈局。',
-          detail: '覆蓋中國大陸、香港、澳門、新加坡、百慕大及美國等多地資源，提供高端保險、離岸信託以及全球投資組合方案的專業諮詢與 DIY 定制服務。'
+          title: '全球架構定制 2.0',
+          value: '跨越司法管轄區的財富佈局',
+          detail: '覆蓋全球多地資源，提供高端保險、離岸信託以及全球投資組合方案的專業諮詢與 DIY 定制服務。'
         },
         {
           icon: '💳',
-          title: '流動性解決方案 (Liquidity Access)',
-          value: '打通資金出海與使用的「最後一公里」。',
-          detail: '協助開立香港主流銀行賬戶（可綁定微信支付，限非香港居民），完美解決家族中短期的資金流動性與規劃難題。[單項價值 ¥2,000]'
+          title: '流動性解決方案',
+          value: '打通資金使用的「最後一公里」',
+          detail: '協助開立主流銀行賬戶（可綁定微信支付），完美解決家族中短期的資金流動性與規劃難題。'
         },
         {
           icon: '📈',
-          title: '多元投資賬戶開通 (Diversified Accounts)',
-          value: '鏈接傳統金融與 Web3.0 數字資產。',
-          detail: '協助開立香港證券賬戶及合規的數字貨幣賬戶，尊享海外博主特權（視政策調整），並提供專業的 CRS 申報及投資風險指導。[單項價值 ¥2,000+]'
+          title: '多元投資賬戶開通',
+          value: '鏈接傳統金融與 Web3.0',
+          detail: '協助開立證券賬戶及合規的數字貨幣賬戶，並提供專業的 CRS 申報及投資風險指導。'
         },
         {
           icon: '🏥',
-          title: '頂層醫療與家辦生態圈 (Elite Health & FO System)',
-          value: '直通頂豪圈層的稀缺資源。',
-          detail: '健康管理：承諾親自陪伴赴日進行 VIP 醫療（直通馬雲、劉強東同級別的精密體檢與幹細胞等項目）。家辦智庫：對接跨境稅務、全球投資、香港身份規劃、CRS 規劃、企業出海及國際教育等領域的家族辦公室專家諮詢。'
+          title: '頂層醫療與家辦生態圈',
+          value: '直通頂豪圈層的稀缺資源',
+          detail: '健康管理：親自陪伴赴日進行 VIP 醫療。家辦智庫：對接跨境稅務、全球投資、身份規劃等領域專家。'
         }
       ],
       cta: '支付 ¥1,680 預約池老 C：20 分鐘 1:1 線上戰略對話',
@@ -210,7 +249,7 @@ export const translations = {
       ]
     },
     coreValues: {
-      title: '為什麼您需要一位「全職」的國際家庭 CFO？',
+      title: '三個理由：為什麼您需要一位「全職」的國際家庭 CFO？',
       subtitle: '在複雜的全球環境中，您的資產需要一位「首席指揮官」和「跨界翻譯官」，而非一群各自為戰的「產品推銷員」。',
       transformations: [
         {
@@ -265,9 +304,10 @@ export const translations = {
       services: '核心服务',
       vip: 'VIP 专区',
       book: '360 财富诊断',
+      tagline: '您家庭专属 VIP 超级经纪人',
     },
     hero: {
-      title: '用芯片级的精密度，为您构筑跨越周期的家族基业。',
+      title: '我是财富池老C·Francis\n您的家庭财富医生╳财富工程师╳财富翻译官',
       subtitle: '我是池望青（Francis）。从 Intel 晶圆预处理工程师 到管理规模超 10 亿美金 的家族 CFO。拥有 10 年+ 跨境金融经验，持 CFA、RFP 及 香港保监局核心牌照。我不推销单一产品，我为您的家族资产编写最坚固的「底层安全代码」。',
       cta: '👉 领取 1680 元 VIP 专属 3D 财富问诊',
       limit: '每月仅限 5 位高净值家族，打造专属 SLA 服务协议。',
@@ -275,7 +315,13 @@ export const translations = {
         '前 Intel 资深工程师',
         'CFA 协会会员 / RFP',
         '香港保监局 IA 持牌人',
-        '胤源集团高级总监'
+        '胤源集团高级总监',
+        '中日港三硕士',
+        '华人家族财富研究中心',
+        '胤源家族治理研究院研究院',
+        '香港恒生大学商学院创业管理硕士',
+        '日本早稻田大学硕士',
+        '前世界TOP20中介风险管理事务所创始人'
       ],
     },
     qualificationsLabel: '专业资格',
@@ -353,96 +399,128 @@ export const translations = {
       items: [
         {
           icon: '🌐',
-          title: '创富 | 全球资产配置与税务优化',
-          desc: '链接全球顶尖私行与外部资管 (EAM)，以机构级费率布局美元与离岸资产，合法优化全球税务结构。',
+          title: '创富',
+          desc: '全球资产配置与税务优化',
+          products: [
+            '全球资产配置 (Global Allocation)',
+            '离岸税务优化 (Tax Optimization)',
+            '外部资产管理 (EAM Services)',
+            '美元债券组合 (USD Bond Portfolio)',
+            '私行开户服务 (Private Banking)',
+            '家族办公室架构 (Family Office Setup)'
+          ]
         },
         {
           icon: '⚖️',
-          title: '守富 | 家族信托与跨境法律框架',
-          desc: '设立海外控股公司与离岸信託，打造企业与个人资产的终极防火墙，防范婚姻与债务风险。',
+          title: '守富',
+          desc: '家族信托与跨境法律框架',
+          products: [
+            '家族信托设立 (Family Trust)',
+            '跨境法律框架 (Legal Framework)',
+            '资产隔离防火墙 (Asset Isolation)',
+            '婚姻资产保全 (Marital Protection)',
+            '债务风险隔离 (Debt Protection)',
+            '离岸控股公司 (Offshore Holding)'
+          ]
         },
         {
           icon: '🛡️',
-          title: '传富 | 高阶保险与流动性管理',
-          desc: '灵活运用保费融资杠杆，将「免税传承」与「投资递延」完美结合，解决跨代流动性难题。',
+          title: '传富',
+          desc: '高阶保险与流动性管理',
+          products: [
+            '高阶大额保单 (Jumbo Insurance)',
+            '保单信托架构 (Policy Trust)',
+            '跨代流动性管理 (Liquidity)',
+            '免税传承设计 (Tax-free Legacy)',
+            '保费融资杠杆 (Premium Finance)',
+            '遗嘱与遗产规划 (Estate Planning)'
+          ]
         },
         {
           icon: '🎓',
-          title: '享富 | 后代教育与家族办公室治理',
-          desc: '从香港/海外身份规划、顶尖名校留学，到家族宪章制定与二代接班人培养。',
+          title: '享富',
+          desc: '后代教育与家族办公室治理',
+          products: [
+            '后代教育规划 (Education Plan)',
+            '香港/海外身份 (Residency)',
+            '家族宪章制定 (Constitution)',
+            '接班人培养 (Successor Training)',
+            '日本顶级大健康 (Japan Medical)',
+            '家族公益慈善 (Philanthropy)'
+          ]
         },
       ],
     },
     offers: {
-      title: '三大特色服务 (稀缺资源)',
+      title: '国际TOP3特色',
       items: [
         {
-          title: 'The Legacy Shield (保单信托)',
+          title: '保单信托',
           desc: '携手 Solid Rock 灜盛托管，一张保单即可启动的迷你家族办公室。极低门槛实现身故理赔金的定向传承与绝对债务隔离。',
         },
         {
-          title: 'The Global Growth Engine (VUL + EAM 双核驱动)',
+          title: 'VUL+EAM双核驱动',
           desc: '利用 VUL 强大的税务递延优势作为「容器」，内核搭载 EAM 的全球主动管理能力。实现「资产隔离」与「超额增值」。',
         },
         {
-          title: 'The Elite Health (日本顶级大健康)',
+          title: '日本大健康',
           desc: '直通马云、刘强东同级别的日本 VIP 医疗资源。由池老师团队提供专属通道，涵盖精密癌筛与干细胞抗衰。',
         },
       ],
     },
     pricing: {
-      title: 'The Francis Chi Privilege —— 您的专属 CFO 服务级别协议 (SLA)',
+      title: '池老师 VIP 8 大权益',
       intro: '为了保证工程师级别的交付质量，我每月仅接受 5 位 高净值家族的深度战略咨询。支付 1,680 元预约问诊，即可解锁这套价值 16,800 HKD 的家族 CFO 级别底层梳理服务。',
       original: '总价值 16,800 HKD',
       current: '限时预约 ¥1,680',
       privileges: [
         {
           icon: '🧬',
-          title: '家族全景图谱 (Family Mapping)',
-          value: '以人为本的顶层架构起点。',
+          title: '家族全景图谱',
+          value: '以人为本的架构起点',
           detail: '建立并长期更新家族系图，明确家庭每一位成员的健康状况、现有保障缺口、隐忧以及未来的传承心愿扫描。'
         },
         {
           icon: '📊',
-          title: '4+1 资产全景盘点 (Asset Audit)',
-          value: '家族资产负债表的「核磁共振」。',
-          detail: '基于独创的「4+1 模型」，对您现有的资产状况进行短、中、长期的结构性盘点与风险压力测试，提供深度的资产负债表分析。'
+          title: '4+1 资产全景盘点',
+          value: '资产负债表「核磁共振」',
+          detail: '基于独创的「4+1 模型」，对您现有的资产状况进行短、中、长期的结构性盘点与风险压力测试。'
         },
         {
           icon: '⏳',
-          title: '未来 30 年现金流沙盘 (Cash Flow Simulation)',
-          value: '确保现金流与家族生命等长。',
-          detail: '绘制家庭未来蓝图，针对子女教育、医疗、婚姻、创业，以及父母养老与财富传承，进行精准的未来现金流规划、分析与设计。'
+          title: '未来 30 年现金流沙盘',
+          value: '确保现金流与家族生命等长',
+          detail: '针对子女教育、医疗、婚姻、创业，以及父母养老与财富传承，进行精准的未来现金流规划与设计。'
         },
         {
           icon: '🛡️',
-          title: '家族保单全托管 (Policy Stewardship)',
-          value: '拒绝「孤儿单」，建立全球保障防御网。',
-          detail: '全面分析全家族目前已有的保障（涵盖中国大陆、香港及海外保单），为您建立专属电子档案，提供一站式的保单权益查询、管理与理赔闭环服务。[单项价值 ¥8,000]'
+          title: '家族保单全托管',
+          value: '拒绝「孤儿单」，建立防御网',
+          detail: '全面分析全家族目前已有的全球保障，为您建立专属电子档案，提供一站式的查询、管理与理赔服务。'
         },
         {
           icon: '🌐',
-          title: '全球架构与投资方案定制 2.0 (Global Architecture)',
-          value: '跨越司法管辖区的财富布局。',
-          detail: '覆盖中国大陆、香港、澳门、新加坡、百慕大及美国等多地资源，提供高端保险、离岸信托以及全球投资组合方案的专业咨询与 DIY 定制服务。'
+          title: '全球架构定制 2.0',
+          value: '跨越司法管辖区的财富布局',
+          detail: '覆盖全球多地资源，提供高端保险、离岸信托以及全球投资组合方案的专业咨询与 DIY 定制服务。'
         },
         {
           icon: '💳',
-          title: '流动性解决方案 (Liquidity Access)',
-          value: '打通资金出海与使用的「最后一公里」。',
-          detail: '协助开立香港主流银行账户（可绑定微信支付，限非香港居民），完美解决家族中短期的资金流动性与规划难题。[单项价值 ¥2,000]'
+          title: '流动性解决方案',
+          value: '打通资金使用的「最后一公里」',
+          detail: '协助开立主流银行账户（可绑定微信支付），完美解决家族中短期的资金流动性与规划难题。'
         },
         {
           icon: '📈',
-          title: '多元投资账户开通 (Diversified Accounts)',
-          value: '链接传统金融与 Web3.0 数字资产。',
-          detail: '协助开立香港证券账户及合规的数字货币账户，尊享海外博主特权（视政策调整），并提供专业的 CRS 申报及投资风险指导。[单项价值 ¥2,000+]'
+          title: '多元投资账户开通',
+          value: '链接传统金融与 Web3.0',
+          detail: '协助开立证券账户及合规的数字货币账户，并提供专业的 CRS 申报及投资风险指导。'
         },
         {
           icon: '🏥',
-          title: '顶层医疗与家办生态圈 (Elite Health & FO System)',
-          value: '直通顶豪圈层的稀缺资源。',
-          detail: '健康管理：承诺亲自陪伴赴日进行 VIP 医疗（直通马云、刘强东同级别的精密体检与干细胞等项目）。家办智库：对接跨境税务、全球投资、香港身份规划、CRS 规划、企业出海及国际教育等领域的家族办公室专家咨询。'
+          title: '顶层医疗与家办生态圈',
+          value: '直通顶豪圈层的稀缺资源',
+          detail: '健康管理：亲自陪伴赴日进行 VIP 医疗。家办智库：对接跨境税务、全球投资、身份规划等领域专家。'
         }
       ],
       cta: '支付 ¥1,680 预约池老 C：20 分钟 1:1 线上战略对话',
@@ -463,7 +541,7 @@ export const translations = {
       ]
     },
     coreValues: {
-      title: '为什么您需要一位「全职」国际家庭 CFO？',
+      title: '三个理由：为什么您需要一位「全职」国际家庭 CFO？',
       subtitle: '在复杂的全球环境中，您的资产需要一位「首席指挥官」和「跨界翻译官」，而非一群各自为战的「产品推销员」。',
       transformations: [
         {
@@ -492,7 +570,7 @@ export const translations = {
           },
           {
             label: '四语文化桥梁 (Quad-Lingual Bridge)',
-            desc: '精通中、英、日、粤。这不仅是语言的翻译，更是法律与商业惯例的翻译。我能为您消除所有的信息噪音，直达全球核心资源。',
+            desc: '精通中、英、日、粤。这不仅是语言的翻译，更是法律与商业惯例的翻译。我能为您消除所有的信息噪音，直達全球核心资源。',
           },
           {
             label: '三地学术背景 (Tri-Regional Wisdom)',
@@ -518,9 +596,10 @@ export const translations = {
       services: 'Services',
       vip: 'VIP',
       book: '360 Wealth Diagnosis',
+      tagline: "Your Family's Exclusive VIP Super Broker",
     },
     hero: {
-      title: 'Architecting Generational Legacies with Chip-Level Precision.',
+      title: 'I am Francis Chi\nYour Family Wealth Doctor ╳ Wealth Engineer ╳ Wealth Interpreter',
       subtitle: 'I am Francis Chi. From Intel Process Engineer to managing over $1B in family assets as a dedicated CFO. With 10+ years of cross-border finance experience and CFA/RFP credentials, I don\'t just sell products—I engineer the "Underlying Security Code" for your family\'s wealth.',
       cta: '👉 Get Your VIP 3D Wealth Diagnosis (Value ¥1680)',
       limit: 'Limited to 5 families per month. Bespoke SLA service.',
@@ -528,7 +607,13 @@ export const translations = {
         'Ex-Intel Senior Engineer',
         'CFA Member / RFP',
         'HK Insurance Authority Licensed',
-        'Senior Director, Yinyuan Group'
+        'Senior Director, Yinyuan Group',
+        "Triple Master's (CN, JP, HK)",
+        'Chinese Family Wealth Research Center',
+        'Yinyuan Family Governance Research Institute',
+        'MSc in Entrepreneurial Management, HSUHK',
+        "Master's from Waseda University, Japan",
+        'Founder of former Top 20 Global Brokerage Risk Management Firm'
       ],
     },
     qualificationsLabel: 'Professional Qualifications',
@@ -606,45 +691,77 @@ export const translations = {
       items: [
         {
           icon: '🌐',
-          title: 'Global Asset Allocation & Tax Optimization',
-          desc: 'Connecting top private banks and EAMs to deploy offshore assets with institutional rates and optimized tax structures.',
+          title: 'Creation',
+          desc: 'Global Asset Allocation & Tax Optimization',
+          products: [
+            'Global Asset Allocation',
+            'Offshore Tax Optimization',
+            'EAM Services',
+            'USD Bond Portfolio',
+            'Private Banking',
+            'Family Office Setup'
+          ]
         },
         {
           icon: '⚖️',
-          title: 'Trust & Cross-Border Legal Shield',
-          desc: 'Establishing offshore holdings and trusts to create the ultimate firewall for corporate and personal assets.',
+          title: 'Protection',
+          desc: 'Trust & Cross-Border Legal Shield',
+          products: [
+            'Family Trust',
+            'Legal Framework',
+            'Asset Isolation',
+            'Marital Protection',
+            'Debt Protection',
+            'Offshore Holding'
+          ]
         },
         {
           icon: '🛡️',
-          title: 'High-End Insurance & Liquidity',
-          desc: 'Leveraging premium financing to combine tax-free succession with investment deferral for cross-generational liquidity.',
+          title: 'Transfer',
+          desc: 'High-End Insurance & Liquidity',
+          products: [
+            'Jumbo Insurance',
+            'Policy Trust',
+            'Liquidity Management',
+            'Tax-free Legacy',
+            'Premium Finance',
+            'Estate Planning'
+          ]
         },
         {
           icon: '🎓',
-          title: 'Next-Gen Education & FO Governance',
-          desc: 'From residency planning and elite schooling to family constitutions and successor cultivation.',
+          title: 'Enjoyment',
+          desc: 'Next-Gen Education & FO Governance',
+          products: [
+            'Education Planning',
+            'Residency Planning',
+            'Family Constitution',
+            'Successor Training',
+            'Japan Medical',
+            'Philanthropy'
+          ]
         },
       ],
     },
     offers: {
-      title: 'Specialized Solutions',
+      title: 'International TOP3',
       items: [
         {
-          title: 'The Legacy Shield (Policy Trust)',
+          title: 'Policy Trust',
           desc: 'A mini-family office started with a single policy. Low threshold for directed succession and absolute debt isolation.',
         },
         {
-          title: 'The Global Growth Engine (VUL + EAM)',
+          title: 'VUL+EAM Dual-Core',
           desc: 'Using VUL’s tax deferral as a "container" for EAM’s active global management. Achieving isolation and alpha.',
         },
         {
-          title: 'The Elite Health (Japan Premium Medical)',
+          title: 'Japan Healthcare',
           desc: 'Direct access to Japan’s VIP medical resources. Exclusive channels for precision cancer screening and stem cell anti-aging.',
         },
       ],
     },
     pricing: {
-      title: 'The Francis Chi Privilege —— Your Dedicated CFO SLA',
+      title: "Teacher Chi's VIP 8 Major Privileges",
       intro: 'To ensure engineer-level delivery, I only accept 5 high-net-worth families for deep strategic consulting each month. Pay ¥1,680 to book a consultation and unlock this set of Family CFO-level underlying sorting services worth 16,800 HKD.',
       original: 'Total Value 16,800 HKD',
       current: 'Limited Offer ¥1,680',
@@ -652,50 +769,50 @@ export const translations = {
         {
           icon: '🧬',
           title: 'Family Mapping',
-          value: 'A people-oriented starting point for top-level architecture.',
-          detail: 'Establish and long-term update family trees, clarify health status, existing protection gaps, hidden concerns, and future succession wishes for every family member.'
+          value: 'People-oriented architecture',
+          detail: 'Establish and long-term update family trees, clarify health status, existing protection gaps, hidden concerns, and future succession wishes.'
         },
         {
           icon: '📊',
           title: '4+1 Asset Audit',
-          value: 'An "MRI" of the family balance sheet.',
-          detail: 'Based on the original "4+1 model", conduct structural inventory and risk stress tests on your existing assets for short, medium, and long terms, providing deep balance sheet analysis.'
+          value: 'Family balance sheet "MRI"',
+          detail: 'Based on the original "4+1 model", conduct structural inventory and risk stress tests on your existing assets for short, medium, and long terms.'
         },
         {
           icon: '⏳',
           title: '30-Year Cash Flow Simulation',
-          value: 'Ensuring cash flow lasts as long as the family life.',
-          detail: 'Draw a future blueprint for the family, conducting precise future cash flow planning, analysis, and design for children\'s education, medical, marriage, entrepreneurship, and parents\' retirement and wealth succession.'
+          value: 'Ensuring cash flow longevity',
+          detail: 'Draw a future blueprint for the family, conducting precise future cash flow planning and design for education, medical, and retirement.'
         },
         {
           icon: '🛡️',
           title: 'Policy Stewardship',
-          value: 'Reject "orphan policies" and build a global protection defense network.',
-          detail: 'Comprehensively analyze all existing protections of the whole family (covering Mainland China, Hong Kong, and overseas policies), establish exclusive electronic files, and provide one-stop policy rights inquiry, management, and claims closed-loop services. [Single item value ¥8,000]'
+          value: 'Global protection defense network',
+          detail: 'Comprehensively analyze all existing global protections, establish exclusive electronic files, and provide one-stop management and claims.'
         },
         {
           icon: '🌐',
           title: 'Global Architecture 2.0',
-          value: 'Wealth layout across jurisdictions.',
-          detail: 'Covering resources in Mainland China, Hong Kong, Macau, Singapore, Bermuda, and the US, providing professional consulting and DIY customization services for high-end insurance, offshore trusts, and global investment portfolio schemes.'
+          value: 'Wealth layout across jurisdictions',
+          detail: 'Covering global resources, providing professional consulting and DIY customization for high-end insurance, offshore trusts, and portfolios.'
         },
         {
           icon: '💳',
           title: 'Liquidity Access',
-          value: 'Opening the "last mile" of capital outflow and use.',
-          detail: 'Assist in opening major Hong Kong bank accounts (can be bound to WeChat Pay, limited to non-HK residents), perfectly solving the family\'s short-to-medium-term capital liquidity and planning problems. [Single item value ¥2,000]'
+          value: 'Opening the "last mile" of capital use',
+          detail: 'Assist in opening major bank accounts, perfectly solving the family\'s short-to-medium-term capital liquidity and planning problems.'
         },
         {
           icon: '📈',
           title: 'Diversified Accounts',
-          value: 'Linking traditional finance with Web3.0 digital assets.',
-          detail: 'Assist in opening Hong Kong securities accounts and compliant digital currency accounts, enjoy exclusive privileges for overseas bloggers (subject to policy adjustments), and provide professional CRS reporting and investment risk guidance. [Single item value ¥2,000+]'
+          value: 'Linking traditional finance with Web3.0',
+          detail: 'Assist in opening securities and compliant digital currency accounts, and provide professional CRS reporting and risk guidance.'
         },
         {
           icon: '🏥',
           title: 'Elite Health & FO System',
-          value: 'Direct access to rare resources in the top luxury circle.',
-          detail: 'Health Management: Commitment to personally accompany you to Japan for VIP medical (direct access to precision physical examination and stem cells at the same level as Jack Ma and Richard Liu). FO Think Tank: Connect with family office expert consulting in cross-border tax, global investment, Hong Kong residency planning, CRS planning, corporate expansion, and international education.'
+          value: 'Direct access to rare resources',
+          detail: 'Health Management: Personally accompany you for VIP medical in Japan. FO Think Tank: Connect with experts in tax, investment, and residency.'
         }
       ],
       cta: 'Pay ¥1,680 to Book Francis: 20-min 1:1 Strategic Session',
@@ -716,7 +833,7 @@ export const translations = {
       ]
     },
     coreValues: {
-      title: 'Why Do You Need a Dedicated International Family CFO?',
+      title: 'Three Reasons: Why Do You Need a Dedicated International Family CFO?',
       subtitle: 'In a complex global landscape, your assets demand a Chief Commander and Cross-border Interpreter, not a disjointed group of product salespeople.',
       transformations: [
         {
@@ -771,9 +888,10 @@ export const translations = {
       services: 'サービス',
       vip: 'VIP',
       book: '360 資産診断',
+      tagline: 'あなたの家族専属VIPスーパーブローカー',
     },
     hero: {
-      title: '半導体レベルの精度で、世代を超える家族の基盤を構築する。',
+      title: '私は財産池老C・Francis\nあなたの家庭財産ドクター ╳ 財産エンジニア ╳ 財産通訳官',
       subtitle: '池望青（Francis）です。Intelのプロセスエンジニアから、10億ドル超の資産を管理するファミリーCFOへ。10年以上のクロスボーダー金融経験とCFA/RFP資格を活かし、単なる商品の提案ではなく、貴家の資産に最も堅牢な「セキュリティコード」を実装します。',
       cta: '👉 VIP専用3D資産診断を予約する（1680元相当）',
       limit: '毎月5家族限定。専属SLAサービスを提供。',
@@ -781,7 +899,13 @@ export const translations = {
         '元Intelシニアエンジニア',
         'CFA協会会員 / RFP',
         '香港保険局IAライセンス保持',
-        '胤源グループシニアディレクター'
+        '胤源グループシニアディレクター',
+        '中・日・港 3つの修士学位',
+        '華人家族財産研究センター',
+        '胤源家族ガバナンス研究院 研究員',
+        '香港恒生大学商学部 起業管理修士',
+        '日本早稲田大学 修士',
+        '元世界TOP20仲介リスク管理事務所 創設者'
       ],
     },
     qualificationsLabel: '専門資格',
@@ -859,96 +983,128 @@ export const translations = {
       items: [
         {
           icon: '🌐',
-          title: 'グローバル資産配分と税務最適化',
-          desc: '世界のプライベートバンクやEAMと連携し、機関投資家レートでオフショア資産を配置し、税務構造を最適化します。',
+          title: '創富',
+          desc: 'グローバル資産配分と税務最適化',
+          products: [
+            'グローバル資産配分',
+            'オフショア税務最適化',
+            'EAMサービス',
+            '米ドル債券ポートフォリオ',
+            'プライベートバンク開設',
+            'ファミリーオフィス構築'
+          ]
         },
         {
           icon: '⚖️',
-          title: '家族信託と国境を越えた法的シールド',
-          desc: 'オフショア持株会社や信託を設立し、企業と個人の資産に究極のファイアウォールを構築し、リスクを防ぎます。',
+          title: '守富',
+          desc: '家族信託とクロスボーダー法的枠組み',
+          products: [
+            '家族信託設立',
+            '法的枠組み構築',
+            '資産隔離ファイアウォール',
+            '婚姻資産保全',
+            '負債リスク隔離',
+            'オフショア持株会社'
+          ]
         },
         {
           icon: '🛡️',
-          title: '高級保険と流動性管理',
-          desc: '保険料ファイナンスを活用し、「非課税継承」と「投資繰延」を組み合わせて、世代間の流動性問題を解決します。',
+          title: '伝富',
+          desc: 'ハイエンド保険と流動性管理',
+          products: [
+            'ハイエンド大型保険',
+            '保険信託スキーム',
+            '世代間流動性管理',
+            '非課税継承設計',
+            '保険料融資レバレッジ',
+            '遺言と遺産プランニング'
+          ]
         },
         {
           icon: '🎓',
-          title: '次世代教育とファミリーオフィス・ガバナンス',
-          desc: '居住権プランニングから名門校留学、家族憲章の策定、後継者の育成までサポートします。',
+          title: '享富',
+          desc: '次世代教育とファミリーオフィスガバナンス',
+          products: [
+            '次世代教育プランニング',
+            '香港/海外居住権',
+            '家族憲章の策定',
+            '後継者育成',
+            '日本トップクラスの医療',
+            '家族慈善活動'
+          ]
         },
       ],
     },
     offers: {
-      title: '3つの特別サービス',
+      title: '国際TOP3特色',
       items: [
         {
-          title: 'The Legacy Shield (保険信託)',
+          title: '保険信託',
           desc: '保険証券1枚から始められるミニ・ファミリーオフィス。低ハードルで確実な継承と資産隔離を実現します。',
         },
         {
-          title: 'The Global Growth Engine (VUL + EAM)',
+          title: 'VUL+EAMデュアルコア',
           desc: 'VULの税繰延効果を「器」として活用し、EAMによるグローバルな動的運用を組み合わせ、隔離と増益を両立します。',
         },
         {
-          title: 'The Elite Health (日本トップクラスの医療)',
+          title: '日本大健康',
           desc: '日本のVIP医療リソースへのダイレクトアクセス。精密がん検診や幹細胞アンチエイジングの専属ルートを提供します。',
         },
       ],
     },
     pricing: {
-      title: 'The Francis Chi Privilege —— 専属CFOサービスレベル合意 (SLA)',
+      title: '池先生のVIP 8大特典',
       intro: 'エンジニア品質の提供を保証するため、深い戦略コンサルティングは毎月5家族限定でお受けしています。1,680元を支払って予約問診を受けることで、16,800 HKD相当のファミリーCFO級の基盤整理サービスをアンロックできます。',
       original: '総価値 16,800 HKD',
       current: '期間限定予約 ¥1,680',
       privileges: [
         {
           icon: '🧬',
-          title: '家族パノラママッピング (Family Mapping)',
-          value: '人間本位のトップレベルアーキテクチャの起点。',
+          title: '家族パノラママッピング',
+          value: '人間本位のアーキテクチャ',
           detail: '家族の系図を構築・長期更新し、各メンバーの健康状態、保障の欠落、懸念事項、将来の継承の意思を明確にします。'
         },
         {
           icon: '📊',
-          title: '4+1 資産パノラマ監査 (Asset Audit)',
-          value: 'バランスシートの「MRI」。',
-          detail: '独自の「4+1モデル」に基づき、既存の資産状況を短・中・長期で構造的に点検し、リスクストレステストを実施。詳細なバランスシート分析を提供します。'
+          title: '4+1 資産パノラマ監査',
+          value: 'バランスシートの「MRI」',
+          detail: '独自の「4+1モデル」に基づき、既存の資産状況を短・中・長期で構造的に点検し、リスクストレステストを実施します。'
         },
         {
           icon: '⏳',
-          title: '将来30年間のキャッシュフロー・シミュレーション (Cash Flow Simulation)',
-          value: 'キャッシュフローを家族の寿命に合わせる。',
-          detail: '家族の将来の青写真を描き、子供の教育、医療、結婚、起業、そして親の老後と資産継承に向けた精密なキャッシュフロー設計・分析を行います。'
+          title: '将来30年間のシミュレーション',
+          value: 'キャッシュフローの寿命を確保',
+          detail: '家族の将来の青写真を描き、子供の教育、医療、結婚、起業、そして親の老後と資産継承に向けた精密な設計を行います。'
         },
         {
           icon: '🛡️',
-          title: '保険証券一括管理 (Policy Stewardship)',
-          value: '「孤児契約」を拒否し、グローバルな保障防衛網を構築。',
-          detail: '家族全員の既存の保障（中国本土、香港、海外）を包括的に分析し、専用の電子ファイルを作成。権利照会、管理、請求までワンストップで対応します。[単体価値 ¥8,000]'
+          title: '保険証券一括管理',
+          value: 'グローバルな保障防衛網',
+          detail: '家族全員の既存の保障を包括的に分析し、専用の電子ファイルを作成。権利照会、管理、請求までワンストップで対応します。'
         },
         {
           icon: '🌐',
-          title: 'グローバル構造と投資プランのカスタマイズ 2.0 (Global Architecture)',
-          value: '法域を超えた富の配置。',
-          detail: '中国本土、香港、マカオ、シンガポール、バミューダ、米国などのリソースを網羅し、高級保険、オフショア信託、グローバル投資ポートフォリオの専門コンサルティングを提供します。'
+          title: 'グローバル構造 2.0',
+          value: '法域を超えた富の配置',
+          detail: '世界中のリソースを網羅し、高級保険、オフショア信託、グローバル投資ポートフォリオの専門コンサルティングを提供します。'
         },
         {
           icon: '💳',
-          title: '流動性ソリューション (Liquidity Access)',
-          value: '資金の海外送金と活用の「ラストワンマイル」を解決。',
-          detail: '香港の主要銀行口座開設をサポート（WeChat Pay連携可、非香港居住者限定）。家族の中長期的な資金流動性とプランニングの課題を解決します。[単体価値 ¥2,000]'
+          title: '流動性ソリューション',
+          value: '資金活用の「ラストワンマイル」',
+          detail: '主要銀行口座開設をサポート。家族の中長期的な資金流動性とプランニングの課題を完璧に解決します。'
         },
         {
           icon: '📈',
-          title: '多角的投資口座の開設 (Diversified Accounts)',
-          value: '伝統的金融とWeb3.0デジタル資産を繋ぐ。',
-          detail: '香港の証券口座および合法的暗号資産口座の開設をサポート。海外ブロガー特典（政策による）の享受や、専門的なCRS申告・投資リスク指導を提供します。[単体価値 ¥2,000+]'
+          title: '多角的投資口座の開設',
+          value: '伝統的金融とWeb3.0を繋ぐ',
+          detail: '証券口座および合法的暗号資産口座の開設をサポート。専門的なCRS申告・投資リスク指導を提供します。'
         },
         {
           icon: '🏥',
-          title: 'エリート医療と家辦エコシステム (Elite Health & FO System)',
-          value: '超富裕層向けの希少リソースへのダイレクトアクセス。',
-          detail: '健康管理：日本のVIP医療（ジャック・マー氏らと同等の精密検診や幹細胞治療）への同行を約束。家辦シンクタンク：国境を越えた税務、投資、香港居住権、CRS、海外進出、国際教育の専門家コンサルティングを接続。'
+          title: 'エリート医療と家辦エコシステム',
+          value: '希少リソースへのアクセス',
+          detail: '健康管理：日本のVIP医療への同行を約束。家辦シンクタンク：税務、投資、居住権などの専門家を接続します。'
         }
       ],
       cta: '¥1,680を支払って予約：20分間の1:1オンライン戦略対話',
@@ -969,7 +1125,7 @@ export const translations = {
       ]
     },
     coreValues: {
-      title: 'なぜ、「専属」の国際ファミリーCFOが必要なのか？',
+      title: '3つの理由：なぜ、「専属」の国際ファミリーCFOが必要なのか？',
       subtitle: '複雑化する国際情勢の中、資産を守るには単なる「セールスマン」ではなく、全体を統括する「指揮官」と「通訳」が必要です。',
       transformations: [
         {
@@ -1002,7 +1158,7 @@ export const translations = {
           },
           {
             label: '三地域の知恵 (Tri-Regional Wisdom)',
-            desc: '中国での成長、早稲田での研究、香港での金融。東アジア家族の絆と西洋金融の契約精神を深く理解し、富の永続を守ります。',
+            desc: '中国での成長、早稲田での研究、香港での金融。東アジア家族の絆と西方金融の契約精神を深く理解し、富の永続を守ります。',
           },
         ],
       },

@@ -8,7 +8,7 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-40 pb-32 text-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-12 pb-32 text-center overflow-hidden">
       {/* Background Layers */}
       <motion.div 
         initial={{ scale: 1 }}
@@ -33,15 +33,33 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
         className="relative z-10 max-w-6xl mx-auto"
       >
         {/* Main Headline */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-8 tracking-tight">
-          <span className="bg-gradient-to-b from-gold-light via-gold to-gold bg-clip-text text-transparent">
-            {t.hero.title.split('，')[0]}
-            {t.hero.title.includes('，') && '，'}
-          </span>
-          <br />
-          <span className="text-white">
-            {t.hero.title.split('，')[1] || ''}
-          </span>
+        <h1 className="font-serif leading-[1.2] mb-12 tracking-tight">
+          {t.hero.title.split('\n').map((line, index) => {
+            if (index === 0) {
+              return (
+                <span key={index} className="bg-gradient-to-b from-gold-light via-gold to-gold bg-clip-text text-transparent block mb-6 text-5xl md:text-7xl lg:text-8xl font-bold">
+                  {line}
+                </span>
+              );
+            }
+            
+            // Highlight keywords in the second line
+            const keywords = ['醫生', '工程師', '翻譯官', 'Doctor', 'Engineer', 'Interpreter', 'ドクター', 'エンジニア', '通訳官', '医生', '工程师', '翻译官'];
+            const regex = new RegExp(`(${keywords.join('|')})`, 'g');
+            const parts = line.split(regex);
+
+            return (
+              <span key={index} className="text-white/90 text-2xl md:text-4xl lg:text-5xl font-light block mt-4 leading-tight tracking-wide">
+                {parts.map((part, i) => (
+                  keywords.includes(part) ? (
+                    <span key={i} className="text-gold-light font-black inline-block mx-1 drop-shadow-[0_0_20px_rgba(212,175,55,0.6)] scale-110 transition-transform hover:scale-125 cursor-default">
+                      {part}
+                    </span>
+                  ) : part
+                ))}
+              </span>
+            );
+          })}
         </h1>
         
         <WorkScenes />

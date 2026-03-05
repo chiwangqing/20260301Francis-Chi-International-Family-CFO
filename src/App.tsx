@@ -29,8 +29,7 @@ const AppContent: React.FC = () => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     why: false,
     pillars: false,
-    offers: false,
-    pricing: false
+    offers: false
   });
   const [expandedDiagnosis, setExpandedDiagnosis] = useState<number | null>(null);
   const [showDiagnosis, setShowDiagnosis] = useState(false);
@@ -63,6 +62,55 @@ const AppContent: React.FC = () => {
 
         <QualificationsBar />
 
+        {/* 5. Service Pillars (Section B) */}
+        <section id="pillars" className="py-24 px-6 bg-midnight/80">
+          <div className="max-w-screen-2xl mx-auto">
+            <div 
+              className="flex flex-col items-center justify-center mb-20"
+            >
+              <h2 className="text-4xl md:text-5xl font-serif text-center text-gold-light uppercase tracking-[0.2em]">{t.pillars.title}</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {t.pillars.items.map((pillar, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="glass rounded-[3rem] p-10 md:p-16 flex flex-col items-center text-center group border border-white/5 hover:border-gold/30 transition-all"
+                >
+                  <div className="text-6xl mb-8 group-hover:scale-110 transition-transform duration-500">{pillar.icon}</div>
+                  
+                  {/* Pillar Title - 300% relative to base or just very large */}
+                  <h3 className="text-5xl md:text-7xl font-serif font-bold text-gold mb-4 tracking-tighter">
+                    {pillar.title}
+                  </h3>
+                  
+                  <p className="text-gold/60 text-lg md:text-xl font-medium mb-12 uppercase tracking-widest">
+                    {pillar.desc}
+                  </p>
+
+                  <div className="w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent mb-12" />
+
+                  {/* 6 Products List */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full text-left">
+                    {(pillar as any).products?.map((product: string, j: number) => (
+                      <div key={j} className="flex items-start gap-3 group/item">
+                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold/40 group-hover/item:bg-gold transition-colors shrink-0" />
+                        <span className="text-soft-white/70 text-sm md:text-base group-hover/item:text-soft-white transition-colors">
+                          {product}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <ScrollingAlbum />
 
         <BrandStory />
@@ -70,7 +118,7 @@ const AppContent: React.FC = () => {
         <CoreValues />
 
         {/* 3. The 'Why' Section */}
-        <section className="py-24 px-6 bg-midnight/50">
+        <section id="why" className="py-24 px-6 bg-midnight/50">
           <div className="max-w-screen-2xl mx-auto">
             <div 
               className="flex flex-col items-center justify-center mb-16"
@@ -119,7 +167,7 @@ const AppContent: React.FC = () => {
         </section>
 
         {/* 4. 3D Diagnosis (Section A) */}
-        <section className="py-24 px-6 relative overflow-hidden">
+        <section id="diagnosis" className="py-24 px-6 relative overflow-hidden">
           <div className="max-w-screen-2xl mx-auto flex flex-col items-center">
             <h2 className="text-3xl md:text-4xl font-serif text-center mb-6">{t.diagnosis.title}</h2>
             <p className="text-soft-white/60 text-center max-w-2xl mb-16 leading-relaxed">
@@ -204,163 +252,153 @@ const AppContent: React.FC = () => {
           </div>
         </section>
 
-        {/* 5. Service Pillars (Section B) */}
-        <section className="py-24 px-6 bg-midnight/80">
+        {/* 6. Special Offers (Section C) */}
+        <section id="top3" className="py-24 px-6">
           <div className="max-w-screen-2xl mx-auto">
             <div 
               className="flex flex-col items-center justify-center mb-16"
             >
-              <h2 className="text-3xl font-serif text-center text-soft-white">{t.pillars.title}</h2>
+              <h2 className="text-3xl font-serif text-center text-soft-white">{t.offers.title}</h2>
             </div>
             
             <div className="overflow-hidden">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
-                {t.pillars.items.map((pillar, i) => (
-                  <motion.div 
-                    key={i}
-                    whileHover={{ y: -5 }}
-                    className="glass rounded-3xl p-8 flex flex-col gap-4 group"
-                  >
-                    <div className="text-4xl mb-2">{pillar.icon}</div>
-                    <h3 className="text-xl font-bold text-gold-light group-hover:text-gold transition-colors">{pillar.title}</h3>
-                    <p className="text-soft-white/60 text-sm leading-relaxed">{pillar.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12">
+                {t.offers.items.map((offer, i) => {
+                  const images = [
+                    "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80"
+                  ];
+                  return (
+                    <motion.div 
+                      key={i} 
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.2 }}
+                      className="glass rounded-[2.5rem] p-0 border-white/5 hover:border-gold/30 transition-all group relative overflow-hidden flex flex-col h-full"
+                    >
+                      {/* Artistic Number */}
+                      <div className="absolute top-2 left-4 text-8xl font-serif font-black text-gold/20 select-none z-0">
+                        {i + 1}
+                      </div>
 
-        {/* 6. Special Offers (Section C) */}
-        <section className="py-24 px-6">
-          <div className="max-w-screen-2xl mx-auto">
-            <div 
-              className="cursor-pointer group flex flex-col items-center justify-center mb-16"
-              onClick={() => toggleSection('offers')}
-            >
-              <h2 className="text-3xl font-serif text-center">{t.offers.title}</h2>
-              <motion.div
-                animate={{ rotate: expanded.offers ? 180 : 0 }}
-                className="mt-4 text-gold/40 group-hover:text-gold"
-              >
-                <ChevronRight className="w-8 h-8 rotate-90" />
-              </motion.div>
-            </div>
-            
-            <AnimatePresence>
-              {expanded.offers && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  className="overflow-hidden"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-12">
-                    {t.offers.items.map((offer, i) => (
-                      <div key={i} className="glass rounded-3xl p-8 border-white/5 hover:border-gold/30 transition-colors group relative overflow-hidden">
-                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/10 transition-colors" />
-                        <h3 className="text-xl font-bold mb-4 text-gold-light">{offer.title}</h3>
-                        <p className="text-soft-white/60 text-sm leading-relaxed mb-6">{offer.desc}</p>
-                        <div className="flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-widest">
+                      {/* Image Header */}
+                      <div className="h-48 w-full overflow-hidden relative z-10">
+                        <img 
+                          src={images[i]} 
+                          alt={offer.title}
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-transparent" />
+                      </div>
+
+                      <div className="p-8 pt-4 relative z-10 flex-1 flex flex-col">
+                        <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 text-gold-light leading-tight">
+                          {offer.title}
+                        </h3>
+                        <p className="text-soft-white/70 text-base leading-relaxed mb-8 flex-1">
+                          {offer.desc}
+                        </p>
+                        <div className="flex items-center gap-2 text-gold text-sm font-bold uppercase tracking-widest mt-auto group-hover:gap-4 transition-all">
                           Learn More <ArrowRight className="w-4 h-4" />
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* 7. CTA & Pricing (Section D) */}
-        <section id="pricing" className="py-24 px-6 bg-gradient-to-b from-midnight to-black relative z-50">
-          <div className="max-w-3xl mx-auto">
-            {/* Black Card UI */}
-            <motion.div 
-              initial={{ rotateX: 10, opacity: 0 }}
-              whileInView={{ rotateX: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              className="bg-zinc-900 rounded-[2.5rem] p-8 md:p-16 border border-zinc-800 shadow-2xl relative overflow-hidden"
-            >
-              {/* Card Chip Motif */}
-              <div className="absolute top-12 right-12 w-16 h-12 rounded-lg bg-gradient-to-br from-gold to-gold-light opacity-80 shadow-[0_0_20px_rgba(212,175,55,0.3)]" />
-              
-              <div 
-                className="cursor-pointer group flex flex-col items-center justify-center mb-8"
-                onClick={() => toggleSection('pricing')}
-              >
-                <h2 className="text-2xl md:text-3xl font-serif text-gold-light text-center">{t.pricing.title}</h2>
-                <motion.div
-                  animate={{ rotate: expanded.pricing ? 180 : 0 }}
-                  className="mt-4 text-gold/40 group-hover:text-gold"
-                >
-                  <ChevronRight className="w-6 h-6 rotate-90" />
-                </motion.div>
-              </div>
+        {/* 7. VIP 8 Major Privileges (Section D) */}
+        <section id="vip" className="py-24 px-6 bg-gradient-to-b from-midnight to-black relative z-50">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-serif text-gold-light mb-4">{t.pricing.title}</h2>
+              <p className="text-soft-white/60 text-lg max-w-2xl mx-auto">{t.pricing.intro}</p>
+            </div>
 
-              <AnimatePresence>
-                {expanded.pricing && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="overflow-hidden"
-                  >
-                    <p className="text-soft-white/50 text-sm mb-12 italic text-center">{t.pricing.intro}</p>
-                    
-                    <div className="space-y-4 mb-12">
-                      {t.pricing.privileges.map((privilege, i) => (
-                        <motion.div 
-                          key={i} 
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ delay: i * 0.05 }}
-                          className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/20 transition-all group"
-                        >
-                          <div className="text-2xl shrink-0 group-hover:scale-110 transition-transform">{privilege.icon}</div>
-                          <div className="flex-1">
-                            <h4 className="text-gold-light font-bold text-sm md:text-base mb-1">{privilege.title}</h4>
-                            <p className="text-soft-white font-medium text-xs md:text-sm mb-1">{privilege.value}</p>
-                            <p className="text-soft-white/40 text-[10px] md:text-xs leading-relaxed">{privilege.detail}</p>
-                          </div>
-                        </motion.div>
-                      ))}
+            <div className="space-y-8 mb-20">
+              {t.pricing.privileges.map((privilege, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  className="relative group"
+                >
+                  <div className="glass rounded-[2.5rem] p-8 md:p-12 border border-white/10 hover:border-gold/30 transition-all overflow-hidden flex flex-col md:flex-row gap-8 items-center relative">
+                    {/* Index Number - Left */}
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-8xl md:text-9xl font-black text-white/10 select-none font-serif z-0">
+                      {i + 1}
                     </div>
 
-                    <div className="flex flex-col items-center gap-6 pt-8 border-t border-white/5">
-                      <div className="text-center">
-                        <span className="text-soft-white/40 text-sm uppercase tracking-widest block mb-1">{t.pricing.original}</span>
-                        <span className="text-4xl font-bold text-gold">{t.pricing.current}</span>
+                    {/* Background Accent */}
+                    <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-gold/5 rounded-full blur-3xl group-hover:bg-gold/10 transition-all" />
+                    
+                    {/* Icon/Number */}
+                    <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-3xl bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center text-5xl md:text-6xl shadow-inner relative z-10">
+                      {privilege.icon}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 text-center md:text-left relative z-10">
+                      <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-4">
+                        <h3 className="text-2xl md:text-3xl font-bold text-gold">{privilege.title}</h3>
+                        <span className="text-gold/60 text-sm md:text-base font-medium font-serif italic">{privilege.value}</span>
                       </div>
-                      
-                      <button 
-                        onClick={() => setShowDiagnosis(true)}
-                        className="w-full gold-gradient text-midnight font-bold py-5 rounded-2xl shadow-2xl shadow-gold/20 hover:scale-[1.02] active:scale-[0.98] transition-all text-lg flex items-center justify-center gap-3"
-                      >
-                        <MessageCircle className="w-6 h-6" />
-                        {t.pricing.cta}
-                      </button>
-                      
-                      <p className="text-soft-white/40 text-[10px] uppercase tracking-[0.2em]">
-                        Limited to 5 families per month
+                      <p className="text-soft-white/80 text-lg md:text-xl leading-relaxed">
+                        {privilege.detail}
                       </p>
                     </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
 
-                    {/* Social Buttons */}
-                    <div className="grid grid-cols-2 gap-4 mt-12">
-                      <button className="flex items-center justify-center gap-2 py-4 rounded-xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all font-bold">
-                        <MessageCircle className="w-5 h-5" />
-                        WeChat
-                      </button>
-                      <button className="flex items-center justify-center gap-2 py-4 rounded-xl bg-blue-500/10 text-blue-500 border border-blue-500/20 hover:bg-blue-500/20 transition-all font-bold">
-                        <PhoneCall className="w-5 h-5" />
-                        WhatsApp
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            {/* Pricing Card */}
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              className="bg-zinc-900 rounded-[3rem] p-10 md:p-16 border border-gold/20 shadow-2xl relative overflow-hidden text-center"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent" />
+              
+              <div className="mb-10">
+                <span className="text-soft-white/40 text-sm uppercase tracking-[0.3em] block mb-4">{t.pricing.original}</span>
+                <div className="flex items-center justify-center gap-4">
+                  <span className="text-5xl md:text-7xl font-bold text-gold">{t.pricing.current}</span>
+                </div>
+              </div>
+              
+              <button 
+                onClick={() => setShowDiagnosis(true)}
+                className="w-full max-w-md mx-auto gold-gradient text-midnight font-bold py-6 rounded-2xl shadow-2xl shadow-gold/30 hover:scale-[1.02] active:scale-[0.98] transition-all text-xl flex items-center justify-center gap-3 mb-8"
+              >
+                <MessageCircle className="w-7 h-7" />
+                {t.pricing.cta}
+              </button>
+              
+              <p className="text-soft-white/40 text-xs uppercase tracking-[0.2em] mb-12">
+                Limited to 5 families per month • Bespoke SLA Service
+              </p>
+
+              {/* Social Buttons */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto">
+                <button className="flex items-center justify-center gap-3 py-5 rounded-2xl bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all font-bold text-lg">
+                  <MessageCircle className="w-6 h-6" />
+                  WeChat: 75108282
+                </button>
+                <button className="flex items-center justify-center gap-3 py-5 rounded-2xl bg-blue-500/10 text-blue-500 border border-blue-500/20 hover:bg-blue-500/20 transition-all font-bold text-lg">
+                  <PhoneCall className="w-6 h-6" />
+                  WhatsApp: 62644926
+                </button>
+              </div>
             </motion.div>
           </div>
         </section>

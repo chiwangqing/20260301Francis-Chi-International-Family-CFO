@@ -118,8 +118,8 @@ const CoreValues: React.FC = () => {
                             {i === 0 ? <Cpu size={18} /> : i === 1 ? <Globe size={18} /> : <Fingerprint size={18} />}
                           </div>
                           <div>
-                            <h4 className="text-soft-white font-bold text-sm mb-1">{item.label}</h4>
-                            <p className="text-soft-white/40 text-xs leading-relaxed">{item.desc}</p>
+                            <h4 className="text-gold font-bold text-3xl md:text-4xl mb-2">{item.label}</h4>
+                            <p className="text-soft-white/60 text-sm leading-relaxed">{item.desc}</p>
                           </div>
                         </div>
                       ))}
