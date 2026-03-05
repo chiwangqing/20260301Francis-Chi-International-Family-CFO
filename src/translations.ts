@@ -15,7 +15,7 @@ export const translations = {
       tagline: '您家庭專屬 VIP 超級經紀人',
     },
     hero: {
-      title: '我是財富池老C·Francis\n您的家庭財富醫生╳財富工程師╳財富翻譯官',
+      title: '“在金融圈，懂投資的人很多，但同時具備工程師精度的風險管理與跨文化深度的人極少。”\n我是財富池老C·Francis\n您的家庭財富醫生╳財富工程師╳財富翻譯官',
       subtitle: '我是池望青（Francis）。從 Intel 晶圓預處理工程師 到管理規模超 10 億美金 的家族 CFO。擁有 10 年+ 跨境金融經驗，持 CFA、RFP 及 香港保監局核心牌照。我不推銷單一產品，我為您的家族資產編寫最堅固的「底層安全代碼」。',
       cta: '👉 領取 1680 元 VIP 專屬 3D 財富問診',
       limit: '每月僅限 5 位高淨值家族，打造專屬 SLA 服務協議。',
@@ -307,7 +307,7 @@ export const translations = {
       tagline: '您家庭专属 VIP 超级经纪人',
     },
     hero: {
-      title: '我是财富池老C·Francis\n您的家庭财富医生╳财富工程师╳财富翻译官',
+      title: '“在金融圈，懂投资的人很多，但同时具备工程师精度的风险管理与跨文化深度的人极少。”\n我是财富池老C·Francis\n您的家庭财富医生╳财富工程师╳财富翻译官',
       subtitle: '我是池望青（Francis）。从 Intel 晶圆预处理工程师 到管理规模超 10 亿美金 的家族 CFO。拥有 10 年+ 跨境金融经验，持 CFA、RFP 及 香港保监局核心牌照。我不推销单一产品，我为您的家族资产编写最坚固的「底层安全代码」。',
       cta: '👉 领取 1680 元 VIP 专属 3D 财富问诊',
       limit: '每月仅限 5 位高净值家族，打造专属 SLA 服务协议。',
@@ -599,7 +599,7 @@ export const translations = {
       tagline: "Your Family's Exclusive VIP Super Broker",
     },
     hero: {
-      title: 'I am Francis Chi\nYour Family Wealth Doctor ╳ Wealth Engineer ╳ Wealth Interpreter',
+      title: '"In the financial world, many understand investment, but few possess both engineering-precision risk management and cross-cultural depth."\nI am Francis Chi\nYour Family Wealth Doctor ╳ Wealth Engineer ╳ Wealth Interpreter',
       subtitle: 'I am Francis Chi. From Intel Process Engineer to managing over $1B in family assets as a dedicated CFO. With 10+ years of cross-border finance experience and CFA/RFP credentials, I don\'t just sell products—I engineer the "Underlying Security Code" for your family\'s wealth.',
       cta: '👉 Get Your VIP 3D Wealth Diagnosis (Value ¥1680)',
       limit: 'Limited to 5 families per month. Bespoke SLA service.',
@@ -891,7 +891,7 @@ export const translations = {
       tagline: 'あなたの家族専属VIPスーパーブローカー',
     },
     hero: {
-      title: '私は財産池老C・Francis\nあなたの家庭財産ドクター ╳ 財産エンジニア ╳ 財産通訳官',
+      title: '「金融業界では投資に精通した人は多いですが、エンジニアの精度を持つリスク管理と異文化の深みを兼ね備えた人は極めて稀です。」\n私は財産池老C・Francis\nあなたの家庭財産ドクター ╳ 財産エンジニア ╳ 財産通訳官',
       subtitle: '池望青（Francis）です。Intelのプロセスエンジニアから、10億ドル超の資産を管理するファミリーCFOへ。10年以上のクロスボーダー金融経験とCFA/RFP資格を活かし、単なる商品の提案ではなく、貴家の資産に最も堅牢な「セキュリティコード」を実装します。',
       cta: '👉 VIP専用3D資産診断を予約する（1680元相当）',
       limit: '毎月5家族限定。専属SLAサービスを提供。',

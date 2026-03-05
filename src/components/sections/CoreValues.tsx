@@ -89,13 +89,26 @@ const CoreValues: React.FC = () => {
             className="glass p-8 md:p-12 rounded-[3rem] border-gold/30 bg-gradient-to-br from-gold/5 to-transparent cursor-pointer"
             onClick={() => setUniqueValueExpanded(!uniqueValueExpanded)}
           >
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-2xl md:text-3xl font-serif text-gold">{t.coreValues.factor.title}</h3>
+            <div className="flex items-center justify-between mb-8">
+              <h3 className="font-serif text-gold flex flex-col md:flex-row md:items-center gap-3">
+                {t.coreValues.factor.title.includes('：') || t.coreValues.factor.title.includes(':') ? (
+                  <>
+                    <span className="text-lg md:text-6xl font-black text-gold-light tracking-tighter">
+                      {t.coreValues.factor.title.split(/[：:]/)[0]}
+                    </span>
+                    <span className="text-4xl md:text-2xl font-bold text-white px-4 py-1.5 rounded-full border-2 border-gold shadow-[0_0_20px_rgba(212,175,55,0.5)] bg-gold/10 backdrop-blur-sm">
+                      {t.coreValues.factor.title.split(/[：:]/)[1]}
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-3xl md:text-5xl font-bold">{t.coreValues.factor.title}</span>
+                )}
+              </h3>
               <motion.div
                 animate={{ rotate: uniqueValueExpanded ? 180 : 0 }}
-                className="text-gold"
+                className="text-gold shrink-0"
               >
-                <ChevronRight className="w-8 h-8 rotate-90" />
+                <ChevronRight className="w-10 h-10 rotate-90" />
               </motion.div>
             </div>
 
@@ -107,11 +120,14 @@ const CoreValues: React.FC = () => {
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-8 border-t border-white/5">
-                    <div>
-                      <p className="text-soft-white/60 leading-relaxed">{t.coreValues.factor.intro}</p>
+                    <div className="lg:col-span-2 mb-8">
+                      <p className="text-4xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-gold-light to-white/40 leading-[1.1] tracking-tighter">
+                        {t.coreValues.factor.intro}
+                      </p>
                     </div>
-                    <div className="space-y-6">
+                    <div className="lg:col-span-2 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent my-8" />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                      <div className="space-y-6 lg:col-span-2 grid grid-cols-1 md:grid-cols-3 gap-8">
                       {t.coreValues.factor.items.map((item, i) => (
                         <div key={i} className="flex gap-4 group">
                           <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-midnight transition-all shrink-0">

@@ -30,27 +30,27 @@ const Header: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) 
     >
       <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
         {/* Left: Logo & Tagline */}
-        <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4">
+        <div className="flex flex-col md:flex-row md:items-center gap-0.5 md:gap-4">
           <div className="flex items-center">
             <a href="/" className="flex items-center gap-2 group">
-              <span className="font-serif text-xl md:text-2xl font-bold text-white tracking-tight">
+              <span className="font-serif text-lg md:text-2xl font-bold text-white tracking-tight">
                 Francis Chi
               </span>
               <span className="hidden md:inline-block w-px h-6 bg-gold/30 mx-1"></span>
-              <span className="font-serif text-sm md:text-lg text-gold/80 font-medium tracking-wide">
+              <span className="hidden md:inline-block font-serif text-sm md:text-lg text-gold/80 font-medium tracking-wide">
                 {lang === 'EN' ? 'International Family CFO' : lang === 'JP' ? '国際ファミリーCFO' : '國際家庭 CFO'}
               </span>
             </a>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="text-[10px] md:text-xs text-white/40 font-medium whitespace-nowrap">
+          <div className="flex flex-col items-start">
+            <span className="text-[9px] md:text-xs text-white/40 font-medium whitespace-nowrap">
               {t.nav.tagline}
             </span>
             <a 
-              href="#top3" 
-              className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-[10px] font-bold animate-pulse hover:bg-red-500/20 transition-all"
+              href="#core-values" 
+              className="text-[9px] md:text-xs text-gold font-bold animate-pulse hover:text-gold-light transition-all flex items-center gap-1"
             >
-              🔥 {t.offers.title}
+              {t.brandStory.nav} <ChevronDown className="w-2 h-2 md:w-3 md:h-3" />
             </a>
           </div>
         </div>
@@ -64,8 +64,8 @@ const Header: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) 
             <a href="#vip" className="text-sm font-medium text-white/70 hover:text-gold transition-colors">{t.nav.vip}</a>
           </nav>
 
-          <div className="flex items-center gap-2 md:gap-4">
-            {/* Expanded Language Switcher */}
+          <div className="flex items-center gap-1.5 md:gap-4">
+            {/* Desktop Language Switcher */}
             <div className="hidden md:flex items-center gap-1 p-1 rounded-full bg-white/5 border border-white/10">
               {langOptions.map((opt) => (
                 <button
@@ -83,19 +83,26 @@ const Header: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) 
               ))}
             </div>
 
-            {/* Mobile Lang Button (Keep simple) */}
-            <div className="md:hidden">
-              <button 
-                onClick={() => setLang(lang === 'TC' ? 'SC' : lang === 'SC' ? 'EN' : lang === 'EN' ? 'JP' : 'TC')}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 text-white/60 text-[10px] font-bold"
-              >
-                {langOptions.find(o => o.code === lang)?.flag}
-              </button>
+            {/* Mobile Language Switcher (Full) */}
+            <div className="md:hidden flex items-center gap-1 p-1 rounded-full bg-white/5 border border-white/10">
+              {langOptions.map((opt) => (
+                <button
+                  key={opt.code}
+                  onClick={() => setLang(opt.code)}
+                  className={`flex items-center justify-center w-8 h-8 rounded-full text-[11px] font-bold transition-all ${
+                    lang === opt.code 
+                      ? 'bg-gold text-midnight shadow-md' 
+                      : 'text-white/40'
+                  }`}
+                >
+                  {opt.code === 'TC' ? '繁' : opt.code === 'SC' ? '简' : opt.code === 'EN' ? 'EN' : '日'}
+                </button>
+              ))}
             </div>
 
             <button 
               onClick={onOpenDiagnosis}
-              className="bg-gold hover:bg-gold-light text-midnight text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 md:py-2.5 rounded-full transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-gold/20 whitespace-nowrap"
+              className="bg-gold hover:bg-gold-light text-midnight text-[9px] md:text-xs font-bold px-3 md:px-6 py-2 md:py-2.5 rounded-full transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-gold/20 whitespace-nowrap"
             >
               {t.nav.book}
             </button>

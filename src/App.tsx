@@ -174,29 +174,9 @@ const AppContent: React.FC = () => {
               {t.diagnosis.intro}
             </p>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-              {/* Interactive 3D Pyramid */}
-              <div className="relative w-full aspect-square max-w-md mx-auto perspective-1000">
-                <motion.div 
-                  animate={{ rotateY: 360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                  className="w-full h-full relative preserve-3d"
-                >
-                  {[0, 90, 180, 270].map((deg) => (
-                    <div 
-                      key={deg}
-                      className="absolute inset-0 origin-bottom flex items-center justify-center"
-                      style={{ 
-                        transform: `rotateY(${deg}deg) translateZ(64px) rotateX(30deg)`,
-                        background: 'linear-gradient(to top, rgba(212, 175, 55, 0.4), transparent)',
-                        clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'
-                      }}
-                    />
-                  ))}
-                  <div className="absolute inset-0 bg-gold/10 blur-3xl rounded-full animate-pulse" />
-                </motion.div>
-              </div>
-
+            <div className="grid grid-cols-1 gap-12 items-center w-full max-w-4xl">
+              {/* Interactive 3D Pyramid removed to save space */}
+              
               {/* Diagnosis Dimensions */}
               <div className="space-y-6">
                 {t.diagnosis.dimensions.map((dim, i) => (
