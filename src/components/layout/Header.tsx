@@ -1,97 +1,60 @@
-import React from 'react';
-import { Cpu, Fingerprint, Globe } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Language } from '../../translations';
-
-const langOptions: { code: Language; label: string }[] = [
-  { code: 'TC', label: '繁體中文' },
-  { code: 'SC', label: '简体中文' },
-  { code: 'EN', label: 'English' },
-  { code: 'JP', label: '日本語' },
-];
 
 const Header: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) => {
-  const { lang, setLang, t } = useLanguage();
+  const { t } = useLanguage();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10 px-4 py-3">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 ${
+        isScrolled ? 'glass py-3' : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gold flex items-center justify-center">
-            <Cpu className="text-midnight w-5 h-5" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-lg font-bold tracking-wider text-gold leading-none">FRANCIS CHI</span>
-            <span className="text-[8px] md:text-[10px] text-gold/70 font-medium tracking-tight mt-0.5 whitespace-nowrap">
-              财富池老C·Francis国际工作室（HK,CN,JP,SG,MC,TW,US)
+        {/* Left: Logo */}
+        <div className="flex items-center">
+          <a href="/" className="flex items-center gap-2 group">
+            <span className="font-serif text-xl md:text-2xl font-bold text-white tracking-tight">
+              Francis Chi
             </span>
-          </div>
+            <span className="hidden md:inline-block w-px h-6 bg-gold/30 mx-1"></span>
+            <span className="font-serif text-sm md:text-lg text-gold/80 font-medium tracking-wide">
+              國際家庭 CFO
+            </span>
+          </a>
         </div>
 
-        <nav className="hidden lg:flex items-center gap-8">
-          <a 
-            href="#brand-story" 
-            className="flex items-center gap-2 text-soft-white/60 hover:text-gold transition-all group"
-          >
-            <Fingerprint className="w-6 h-6 group-hover:scale-125 transition-transform" />
-            <span className="text-xs font-bold uppercase tracking-widest">{t.brandStory.nav}</span>
-          </a>
-          <a 
-            href="#core-values" 
-            className="flex items-center gap-2 text-soft-white/60 hover:text-gold transition-all group"
-          >
-            <Cpu className="w-6 h-6 group-hover:scale-125 transition-transform" />
-            <span className="text-xs font-bold uppercase tracking-widest">{t.coreValues.title.split('？')[0]}</span>
-          </a>
-        </nav>
-        
-        <div className="flex items-center gap-2 md:gap-4">
-          <a 
-            href="#brand-story" 
-            className="lg:hidden flex items-center justify-center w-8 h-8 rounded-full bg-gold/10 text-gold border border-gold/20"
-          >
-            <Fingerprint className="w-5 h-5" />
-          </a>
+        {/* Right: Navigation */}
+        <div className="flex items-center gap-4 md:gap-10">
+          <nav className="hidden lg:flex items-center gap-8">
+            <a href="#" className="text-sm font-medium text-white/70 hover:text-gold transition-colors">Home</a>
+            <a href="#diagnosis" onClick={(e) => { e.preventDefault(); onOpenDiagnosis(); }} className="text-sm font-medium text-white/70 hover:text-gold transition-colors">3D Diagnosis</a>
+            <a href="#services" className="text-sm font-medium text-white/70 hover:text-gold transition-colors">Services</a>
+            <a href="#vip" className="text-sm font-medium text-white/70 hover:text-gold transition-colors">VIP</a>
+          </nav>
 
-          <div className="hidden sm:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10">
-            {langOptions.map((opt) => (
-              <button
-                key={opt.code}
-                onClick={() => setLang(opt.code)}
-                className={`text-[10px] font-bold px-3 py-1.5 rounded-full transition-all ${
-                  lang === opt.code 
-                    ? 'bg-gold text-midnight' 
-                    : 'text-soft-white/40 hover:text-gold'
-                }`}
-              >
-                {opt.label}
-              </button>
-            ))}
+          <div className="flex items-center gap-3">
+            <button 
+              className="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full border border-gold/40 text-gold text-xs font-bold hover:bg-gold/10 transition-all"
+            >
+              WeChat: 75108282
+            </button>
+            <button 
+              onClick={onOpenDiagnosis}
+              className="bg-gold hover:bg-gold-light text-midnight text-xs font-bold px-5 py-2.5 rounded-full transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-gold/20"
+            >
+              {t.nav.book}
+            </button>
           </div>
-          
-          {/* Mobile view */}
-          <div className="sm:hidden flex items-center gap-0.5">
-             {langOptions.map((opt) => (
-              <button
-                key={opt.code}
-                onClick={() => setLang(opt.code)}
-                className={`text-[9px] font-bold w-6 h-6 flex items-center justify-center rounded-full transition-all border ${
-                  lang === opt.code 
-                    ? 'bg-gold text-midnight border-gold' 
-                    : 'text-soft-white/40 border-white/10'
-                }`}
-              >
-                {opt.code}
-              </button>
-            ))}
-          </div>
-
-          <button 
-            onClick={onOpenDiagnosis}
-            className="bg-gold hover:bg-gold-light text-midnight text-[10px] md:text-xs font-bold px-3 md:px-4 py-2 rounded-full transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap"
-          >
-            {t.nav.book}
-          </button>
         </div>
       </div>
     </header>

@@ -25,18 +25,25 @@ async function startServer() {
     console.log("Received diagnosis data:", data);
 
     // Email configuration
+    const smtpPort = Number(process.env.SMTP_PORT) || 587;
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.ethereal.email",
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: false,
+      port: smtpPort,
+      secure: smtpPort === 465, // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USER || "mock_user",
         pass: process.env.SMTP_PASS || "mock_pass",
       },
+      tls: {
+        // Do not fail on invalid certs (common for some enterprise SMTP)
+        rejectUnauthorized: false
+      },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
     });
 
     const mailOptions = {
-      from: '"Francis Chi Website" <noreply@francischi.com>',
+      from: `"Francis Chi Website" <${process.env.SMTP_USER || 'francischi@francis-family-cfo.com'}>`,
       to: "chiwangqing@gmail.com",
       subject: `[新客戶診斷線索] 360°財富DNA掃描 - ${name}`,
       text: `
@@ -77,17 +84,29 @@ async function startServer() {
     };
 
     try {
-      // Only attempt to send if credentials are provided, otherwise just log
-      if (process.env.SMTP_USER && process.env.SMTP_USER !== "mock_user") {
-        await transporter.sendMail(mailOptions);
-        console.log("Email sent successfully");
-      } else {
-        console.log("SMTP credentials not configured. Email content logged above.");
+      // Check if configured
+      if (!process.env.SMTP_USER || process.env.SMTP_USER === "mock_user") {
+        console.warn("CRITICAL: SMTP_USER is not configured in Environment Variables.");
+        return res.json({ status: "ok", warning: "SMTP not configured" });
       }
+
+      console.log(`Attempting to send email via ${process.env.SMTP_HOST}:${smtpPort} (Secure: ${smtpPort === 465})`);
+      await transporter.sendMail(mailOptions);
+      console.log("SUCCESS: Email sent to chiwangqing@gmail.com");
       res.json({ status: "ok" });
-    } catch (error) {
-      console.error("Error sending email:", error);
-      res.status(500).json({ error: "Failed to send email" });
+    } catch (error: any) {
+      console.error("FATAL: SMTP Error Details:");
+      console.error("Message:", error.message);
+      console.error("Code:", error.code);
+      console.error("Command:", error.command);
+      console.error("Response:", error.response);
+      console.error("Stack:", error.stack);
+      
+      res.json({ 
+        status: "error", 
+        message: "SMTP connection failed",
+        error: error.message 
+      });
     }
   });
 
