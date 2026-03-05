@@ -27,7 +27,7 @@ const QualificationsBar: React.FC = () => {
       <div className="max-w-screen-2xl mx-auto px-6 mb-4">
         <div className="flex items-center gap-2 text-gold/60 text-[10px] uppercase tracking-[0.3em] font-bold">
           <div className="w-8 h-px bg-gold/30" />
-          Professional Qualifications
+          {t.qualificationsLabel}
         </div>
       </div>
       

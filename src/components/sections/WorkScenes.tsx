@@ -1,54 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ASSETS } from '../../constants';
+import { useLanguage } from '../../context/LanguageContext';
 
 const WorkScenes: React.FC = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const scenes = [
-    {
-      src: ASSETS.WORKING_SCENE(1),
-      title: 'SCENARIO 1',
-      subtitle: 'The Mastermind Consultation',
-      desc: '全景決策 | Strategic Alignment'
-    },
-    {
-      src: ASSETS.WORKING_SCENE(2),
-      title: 'SCENARIO 2',
-      subtitle: 'The Wealth Engineer',
-      desc: '工程師視角 | Precision Architecture'
-    },
-    {
-      src: ASSETS.WORKING_SCENE(3),
-      title: 'SCENARIO 3',
-      subtitle: 'The Trust Handshake',
-      desc: '交付與承諾 | Fiduciary Bond'
-    }
-  ];
+  const scenes = t.workScenes.scenes.map((scene, i) => ({
+    ...scene,
+    src: ASSETS.WORKING_SCENE(i + 1)
+  }));
 
   const next = () => setCurrentIndex((prev) => (prev + 1) % scenes.length);
   const prev = () => setCurrentIndex((prev) => (prev - 1 + scenes.length) % scenes.length);
 
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="py-12 bg-midnight relative overflow-hidden">
-      <div className="max-w-screen-2xl mx-auto px-6">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
+      className="w-full relative overflow-hidden mb-12"
+    >
+      <div className="max-w-5xl mx-auto px-4">
         <div className="relative group">
           {/* Main Slider Container */}
-          <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[2rem] overflow-hidden border border-gold/20 shadow-2xl bg-midnight/50">
+          <div className="relative aspect-[16/9] md:aspect-[2.5/1] rounded-[2rem] overflow-hidden border border-gold/20 shadow-2xl bg-midnight/50">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
                 className="absolute inset-0"
               >
-                <img
+                <motion.img
                   src={scenes[currentIndex].src}
                   alt={scenes[currentIndex].title}
                   className="w-full h-full object-cover"
+                  animate={{ scale: [1, 1.15] }}
+                  transition={{ duration: 8, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
                   referrerPolicy="no-referrer"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
@@ -62,31 +60,31 @@ const WorkScenes: React.FC = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass border border-gold/20 flex items-center justify-center text-gold hover:bg-gold/10 transition-all z-10 opacity-0 group-hover:opacity-100"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass border border-gold/20 flex items-center justify-center text-gold hover:bg-gold/10 transition-all z-10 opacity-0 group-hover:opacity-100"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
             <button 
               onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass border border-gold/20 flex items-center justify-center text-gold hover:bg-gold/10 transition-all z-10 opacity-0 group-hover:opacity-100"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass border border-gold/20 flex items-center justify-center text-gold hover:bg-gold/10 transition-all z-10 opacity-0 group-hover:opacity-100"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5" />
             </button>
 
             {/* Indicators */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10">
               {scenes.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i)}
-                  className={`h-1 transition-all rounded-full ${i === currentIndex ? 'w-8 bg-gold' : 'w-2 bg-gold/30'}`}
+                  className={`h-1.5 transition-all rounded-full ${i === currentIndex ? 'w-10 bg-gold' : 'w-3 bg-gold/30'}`}
                 />
               ))}
             </div>
           </div>
 
           {/* Text Description Below Image */}
-          <div className="mt-8 text-center">
+          <div className="mt-4 text-center">
             <motion.div
               key={`text-${currentIndex}`}
               initial={{ opacity: 0, y: 10 }}
@@ -96,17 +94,17 @@ const WorkScenes: React.FC = () => {
               <span className="text-gold/60 text-xs font-bold tracking-[0.3em] uppercase block mb-2">
                 {scenes[currentIndex].title}
               </span>
-              <h3 className="text-2xl md:text-3xl font-serif text-soft-white mb-2">
+              <h3 className="text-xl md:text-2xl font-serif text-soft-white mb-1">
                 {scenes[currentIndex].subtitle}
               </h3>
-              <p className="text-gold-light/80 text-sm md:text-base font-medium tracking-wide">
+              <p className="text-gold-light/80 text-xs md:text-sm font-medium tracking-wide">
                 {scenes[currentIndex].desc}
               </p>
             </motion.div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.div>
   );
 };
 

@@ -3,25 +3,23 @@ import { motion } from 'motion/react';
 import { ASSETS } from '../../constants';
 
 const ScrollingAlbum: React.FC = () => {
-  const storyNames = [
-    'story-1', 'story-2', 'story-3', 'story-4', 'story-5', 'story-6', 'story-7', 'story-8', 
-    'story-10', 'story-11', 'story-12', 'story-15', 'story-17', 
-    'story-19', 'story-20', 'story-21', 'story-22', 'story-23', 
-    'story-24', 'story-25'
-  ];
+  const storyNames = Array.from({ length: 30 }, (_, i) => `story-${i + 1}`);
   
   const images = storyNames.map(name => ({
     src: ASSETS.STORY_IMAGE(name),
     name: name.replace('story-', 'Story ')
   }));
 
+  const itemWidth = 384; // md:w-96
+  const totalWidth = images.length * itemWidth;
+
   return (
     <section className="py-12 bg-midnight overflow-hidden">
       <div className="flex whitespace-nowrap">
         <motion.div
-          animate={{ x: [0, -5000] }}
+          animate={{ x: [0, -totalWidth] }}
           transition={{
-            duration: 60,
+            duration: images.length * 3, // Adjust speed based on number of images
             repeat: Infinity,
             ease: "linear",
           }}
@@ -40,7 +38,21 @@ const ScrollingAlbum: React.FC = () => {
                 loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = `https://placehold.co/800x600/1a1a1a/D4AF37?text=${item.name}+Unavailable`;
+                  const currentSrc = target.src;
+                  
+                  // Extract the base URL without the extension and cache buster
+                  // e.g., .../story-1.png?v=123 -> .../story-1
+                  const baseUrl = currentSrc.split('?')[0].replace(/\.(png|jpg|jpeg)$/, '');
+                  const cacheBuster = currentSrc.includes('?') ? '?' + currentSrc.split('?')[1] : '';
+
+                  if (currentSrc.includes('.png')) {
+                    target.src = `${baseUrl}.jpg${cacheBuster}`;
+                  } else if (currentSrc.includes('.jpg') && !currentSrc.includes('.jpeg')) {
+                    target.src = `${baseUrl}.jpeg${cacheBuster}`;
+                  } else {
+                    // If all formats fail, show placeholder
+                    target.src = `https://placehold.co/800x600/1a1a1a/D4AF37?text=${item.name}+Unavailable`;
+                  }
                 }}
               />
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity bg-black/20">

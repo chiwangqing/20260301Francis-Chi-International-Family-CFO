@@ -1,5 +1,5 @@
 export const REMOTE_BASE = 'https://raw.githubusercontent.com/chiwangqing/Francis-Assets/main';
-export const CACHE_BUST = '?v=2026';
+export const CACHE_BUST = `?v=${new Date().getTime()}`;
 
 export const ASSETS = {
   WECHAT: `${REMOTE_BASE}/Contact%20Info/wechat.png${CACHE_BUST}`,

@@ -7,29 +7,51 @@ export const translations = {
       description: '為全球高淨值家族提供晶片級精度的財富架構設計與傳承服務。',
     },
     nav: {
+      home: '首頁',
+      diagnosis: '3D 財富診斷',
+      services: '核心服務',
+      vip: 'VIP 專區',
       book: '360 財富診斷',
     },
     hero: {
-      title: '駕馭財富秩序，守護世代自由。',
-      subtitle: '在複雜的全球變局中，您的資產需要一位「首席指揮官」與「跨界翻譯官」。我將 Intel 晶圓工程師的納米級精度與 CFA 的金融宏觀視野相結合，為您的家族資產編寫底層代碼，構築跨越時代的傳世基業。',
+      title: '用芯片級的精密度，為您構筑跨越週期的家族基業。',
+      subtitle: '我是池望青（Francis）。從 Intel 晶圓預處理工程師 到管理規模超 10 億美金 的家族 CFO。拥有 10 年+ 跨境金融经验，持 CFA、RFP 及 香港保监局核心牌照。我不推销单一产品，我为您的家族资产编写最坚固的「底层安全代码」。',
+      cta: '👉 領取 1680 元 VIP 專屬 3D 財富問診',
+      limit: '每月僅限 5 位高淨值家族，打造專屬 SLA 服務協議。',
       badges: [
-        'MDRT 百萬圓桌會員', 
-        '前 Intel 工程師',
-        '前全球頭部中介風險管理事務所創始人',
-        '中日港三碩士學位 🇨🇳🇯🇵🇭🇰',
-        '香港恒生大學知識交流學院 IKE',
-        '香港華人家族財富傳承研究中心',
-        '胤源全球家族治理研究院',
-        '80後太陽：金牛座 & 上升：天蠍座 AB 血型',
-        '上海福州成都三地「混血」族'
+        '前 Intel 資深工程師',
+        'CFA 協會會員 / RFP',
+        '香港保監局 IA 持牌人',
+        '胤源集團高級總監'
       ],
     },
+    qualificationsLabel: '專業資格',
     qualifications: [
       'CFA 特許金融分析師',
       'MDRT 百萬圓桌會員',
       '前 Intel 工程師',
       '中日港三項碩士學位'
     ],
+    workScenes: {
+      title: '工作場景',
+      scenes: [
+        {
+          title: '場景 1',
+          subtitle: '大師級諮詢',
+          desc: '全景決策 | Strategic Alignment'
+        },
+        {
+          title: '場景 2',
+          subtitle: '財富工程師',
+          desc: '工程師視角 | Precision Architecture'
+        },
+        {
+          title: '場景 3',
+          subtitle: '信任的握手',
+          desc: '交付與承諾 | Fiduciary Bond'
+        }
+      ]
+    },
     why: {
       title: '您的資產是在「裸奔」，還是在「精密運轉」？',
       pain: {
@@ -226,6 +248,11 @@ export const translations = {
         ],
       },
     },
+    footer: {
+      copy: '© 2024 池望青 Francis Chi - 國際家庭財富工程師。版權所有。',
+      privacy: '隱私政策',
+      terms: '服務條款'
+    }
   },
   SC: {
     seo: {
@@ -233,29 +260,51 @@ export const translations = {
       description: '为全球高净值家族提供芯片级精度的财富架构设计与传承服务。',
     },
     nav: {
+      home: '首页',
+      diagnosis: '3D 财富诊断',
+      services: '核心服务',
+      vip: 'VIP 专区',
       book: '360 财富诊断',
     },
     hero: {
-      title: '驾驭财富秩序，守护世代自由。',
-      subtitle: '在复杂的全球变局中，您的资产需要一位「首席指挥官」与「跨界翻译官」。我将 Intel 晶圆工程师的纳米级精度与 CFA 的金融宏观视野相结合，为您的家族资产编写底层代码，构筑跨越时代的传世基业。',
+      title: '用芯片级的精密度，为您构筑跨越周期的家族基业。',
+      subtitle: '我是池望青（Francis）。从 Intel 晶圆预处理工程师 到管理规模超 10 亿美金 的家族 CFO。拥有 10 年+ 跨境金融经验，持 CFA、RFP 及 香港保监局核心牌照。我不推销单一产品，我为您的家族资产编写最坚固的「底层安全代码」。',
+      cta: '👉 领取 1680 元 VIP 专属 3D 财富问诊',
+      limit: '每月仅限 5 位高净值家族，打造专属 SLA 服务协议。',
       badges: [
-        'MDRT 百万圆桌会员', 
-        '前 Intel 工程师',
-        '前全球头部中介风险管理事务所创始人',
-        '中日港三硕士学位 🇨🇳🇯🇵🇭🇰',
-        '香港恒生大学知识交流学院 IKE',
-        '香港华人家族财富传承研究中心',
-        '胤源全球家族治理研究院',
-        '80后太阳：金牛座 & 上升：天蝎座 AB 血型',
-        '上海福州成都三地“混血”族'
+        '前 Intel 资深工程师',
+        'CFA 协会会员 / RFP',
+        '香港保监局 IA 持牌人',
+        '胤源集团高级总监'
       ],
     },
+    qualificationsLabel: '专业资格',
     qualifications: [
       'CFA 特许金融分析师',
       'MDRT 百万圆桌会员',
       '前 Intel 工程师',
       '中日港三项硕士学位'
     ],
+    workScenes: {
+      title: '工作场景',
+      scenes: [
+        {
+          title: '场景 1',
+          subtitle: '大师级咨询',
+          desc: '全景决策 | Strategic Alignment'
+        },
+        {
+          title: '场景 2',
+          subtitle: '财富工程师',
+          desc: '工程师视角 | Precision Architecture'
+        },
+        {
+          title: '场景 3',
+          subtitle: '信任的握手',
+          desc: '交付与承诺 | Fiduciary Bond'
+        }
+      ]
+    },
     why: {
       title: '您的资产是在「裸奔」，还是在「精密运转」？',
       pain: {
@@ -452,6 +501,11 @@ export const translations = {
         ],
       },
     },
+    footer: {
+      copy: '© 2024 池望青 Francis Chi - 国际家庭财富工程师。版权所有。',
+      privacy: '隐私政策',
+      terms: '服务条款'
+    }
   },
   EN: {
     seo: {
@@ -459,29 +513,51 @@ export const translations = {
       description: 'Providing chip-level precision in wealth structural design for global UHNW families.',
     },
     nav: {
+      home: 'Home',
+      diagnosis: '3D Diagnosis',
+      services: 'Services',
+      vip: 'VIP',
       book: '360 Wealth Diagnosis',
     },
     hero: {
-      title: 'Master the Order of Wealth. Embrace Generational Freedom.',
-      subtitle: 'In a fragmented global landscape, your legacy demands Strategic Alignment. Bridging Intel’s engineering precision with a CFA’s multi-generational vision, I act as your dedicated Family CFO—architecting the underlying code for your family’s ultimate freedom.',
+      title: 'Architecting Generational Legacies with Chip-Level Precision.',
+      subtitle: 'I am Francis Chi. From Intel Process Engineer to managing over $1B in family assets as a dedicated CFO. With 10+ years of cross-border finance experience and CFA/RFP credentials, I don\'t just sell products—I engineer the "Underlying Security Code" for your family\'s wealth.',
+      cta: '👉 Get Your VIP 3D Wealth Diagnosis (Value ¥1680)',
+      limit: 'Limited to 5 families per month. Bespoke SLA service.',
       badges: [
-        'MDRT Member', 
-        'Ex-Intel Engineer',
-        'Founder of Global Risk Management Firm',
-        'Triple Master\'s (CN/JP/HK) 🇨🇳🇯🇵🇭🇰',
-        'HSUHK Institute of Knowledge Exchange',
-        'HK Chinese Family Wealth Research Center',
-        'Yinyuan Global Family Governance Institute',
-        '80s Gen | Sun: Taurus & Rising: Scorpio | Type AB',
-        '"Mixed" Heritage: Shanghai, Fuzhou & Chengdu'
+        'Ex-Intel Senior Engineer',
+        'CFA Member / RFP',
+        'HK Insurance Authority Licensed',
+        'Senior Director, Yinyuan Group'
       ],
     },
+    qualificationsLabel: 'Professional Qualifications',
     qualifications: [
       'CFA Chartered Financial Analyst',
       'MDRT Million Dollar Round Table',
       'Former Intel Engineer',
       'Triple Master\'s (CN, JP, HK)'
     ],
+    workScenes: {
+      title: 'Work Scenes',
+      scenes: [
+        {
+          title: 'SCENARIO 1',
+          subtitle: 'The Mastermind Consultation',
+          desc: 'Strategic Alignment'
+        },
+        {
+          title: 'SCENARIO 2',
+          subtitle: 'The Wealth Engineer',
+          desc: 'Precision Architecture'
+        },
+        {
+          title: 'SCENARIO 3',
+          subtitle: 'The Trust Handshake',
+          desc: 'Fiduciary Bond'
+        }
+      ]
+    },
     why: {
       title: 'Is your wealth exposed, or operating with precision?',
       pain: {
@@ -678,6 +754,11 @@ export const translations = {
         ],
       },
     },
+    footer: {
+      copy: '© 2024 Francis Chi - Family Office Wealth Engineer. All Rights Reserved.',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Service'
+    }
   },
   JP: {
     seo: {
@@ -685,29 +766,51 @@ export const translations = {
       description: 'グローバルな超富裕層ファミリー向けに、半導体レベルの精度で資産構造設計と継承サービスを提供します。',
     },
     nav: {
+      home: 'ホーム',
+      diagnosis: '3D 資産診断',
+      services: 'サービス',
+      vip: 'VIP',
       book: '360 資産診断',
     },
     hero: {
-      title: '秩序ある富の管理が、世代を超える自由を約束する。',
-      subtitle: '複雑化する国際情勢の中、資産を守るには各分野を統括する「指揮官」が必要です。Intelのエンジニアリング精度とCFAの金融ビジョンを融合し、専属の国際ファミリーCFOとして、貴家の資産に揺るぎない基盤（コード）を構築いたします。',
+      title: '半導体レベルの精度で、世代を超える家族の基盤を構築する。',
+      subtitle: '池望青（Francis）です。Intelのプロセスエンジニアから、10億ドル超の資産を管理するファミリーCFOへ。10年以上のクロスボーダー金融経験とCFA/RFP資格を活かし、単なる商品の提案ではなく、貴家の資産に最も堅牢な「セキュリティコード」を実装します。',
+      cta: '👉 VIP専用3D資産診断を予約する（1680元相当）',
+      limit: '毎月5家族限定。専属SLAサービスを提供。',
       badges: [
-        'MDRT 会員', 
-        '元 Intel エンジニア',
-        'グローバルリスク管理事務所創設者',
-        '中日港三修士号 🇨🇳🇯🇵🇭🇰',
-        '香港恒生大学知识交流学院 IKE',
-        '香港華人家族財産継承研究センター',
-        '胤源グローバル家族統治研究院',
-        '80年代生まれ | 太陽：牡牛座 & 上昇：蠍座 | AB型',
-        '上海・福州・成都の「ハイブリッド」ルーツ'
+        '元Intelシニアエンジニア',
+        'CFA協会会員 / RFP',
+        '香港保険局IAライセンス保持',
+        '胤源グループシニアディレクター'
       ],
     },
+    qualificationsLabel: '専門資格',
     qualifications: [
       'CFA 米国公認財務アナリスト',
       'MDRT 百万ドル円卓会議会員',
       '元 Intel エンジニア',
       '中・日・港 3つの修士学位'
     ],
+    workScenes: {
+      title: '仕事の風景',
+      scenes: [
+        {
+          title: 'シナリオ 1',
+          subtitle: 'マスターマインド・コンサルティング',
+          desc: '全景的な意思決定 | Strategic Alignment'
+        },
+        {
+          title: 'シナリオ 2',
+          subtitle: 'ウェルス・エンジニア',
+          desc: 'エンジニアの視点 | Precision Architecture'
+        },
+        {
+          title: 'シナリオ 3',
+          subtitle: '信頼の握手',
+          desc: '受託者責任の絆 | Fiduciary Bond'
+        }
+      ]
+    },
     why: {
       title: 'あなたの資産は「無防備」ですか、それとも「精密に運用」されていますか？',
       pain: {
@@ -904,5 +1007,10 @@ export const translations = {
         ],
       },
     },
+    footer: {
+      copy: '© 2024 Francis Chi - ファミリーオフィス・ウェルス・エンジニア。無断複写・転載を禁じます。',
+      privacy: 'プライバシーポリシー',
+      terms: '利用規約'
+    }
   },
 };

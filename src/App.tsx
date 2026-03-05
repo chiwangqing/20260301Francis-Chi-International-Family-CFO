@@ -18,22 +18,14 @@ import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import BrandStory from './components/sections/BrandStory';
 import ScrollingAlbum from './components/sections/ScrollingAlbum';
-import WorkScenes from './components/sections/WorkScenes';
 import CoreValues from './components/sections/CoreValues';
 import QualificationsBar from './components/sections/QualificationsBar';
 import FloatingActionButton from './components/ui/FloatingActionButton';
 import WealthDiagnosis from './components/sections/WealthDiagnosis';
 import { Language } from './translations';
 
-const langOptions: { code: Language; label: string }[] = [
-  { code: 'TC', label: '繁體中文' },
-  { code: 'SC', label: '简体中文' },
-  { code: 'EN', label: 'English' },
-  { code: 'JP', label: '日本語' },
-];
-
 const AppContent: React.FC = () => {
-  const { lang, setLang, t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     why: false,
     pillars: false,
@@ -67,34 +59,7 @@ const AppContent: React.FC = () => {
       <Header onOpenDiagnosis={() => setShowDiagnosis(true)} />
 
       <main className="pt-20">
-        {/* Language Selection Section */}
-        <section className="py-8 px-6 border-b border-white/5 bg-midnight/30">
-          <div className="max-w-screen-2xl mx-auto flex flex-wrap items-center justify-center gap-4 md:gap-8">
-            <div className="flex items-center gap-2 text-soft-white/40 text-[10px] uppercase tracking-widest font-bold">
-              <Globe className="w-3 h-3" />
-              Select Language
-            </div>
-            <div className="flex flex-wrap justify-center gap-2">
-              {langOptions.map((opt) => (
-                <button
-                  key={opt.code}
-                  onClick={() => setLang(opt.code)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
-                    lang === opt.code 
-                      ? 'bg-gold/10 text-gold border-gold/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]' 
-                      : 'text-soft-white/40 border-white/5 hover:border-white/20 hover:text-soft-white'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <Hero onOpenDiagnosis={() => setShowDiagnosis(true)} />
-
-        <WorkScenes />
 
         <QualificationsBar />
 
@@ -108,64 +73,48 @@ const AppContent: React.FC = () => {
         <section className="py-24 px-6 bg-midnight/50">
           <div className="max-w-screen-2xl mx-auto">
             <div 
-              className="cursor-pointer group flex flex-col items-center justify-center mb-16"
-              onClick={() => toggleSection('why')}
+              className="flex flex-col items-center justify-center mb-16"
             >
-              <h2 className={`text-3xl md:text-4xl font-serif text-center leading-tight transition-all ${!expanded.why ? 'animate-pulse text-gold' : 'text-soft-white'}`}>
+              <h2 className="text-3xl md:text-4xl font-serif text-center leading-tight text-soft-white">
                 {t.why.title}
               </h2>
-              <motion.div
-                animate={{ rotate: expanded.why ? 180 : 0 }}
-                className="mt-4 text-gold/40 group-hover:text-gold"
-              >
-                <ChevronRight className="w-8 h-8 rotate-90" />
-              </motion.div>
             </div>
             
-            <AnimatePresence>
-              {expanded.why && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  className="overflow-hidden"
-                >
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-12">
-                    {/* Pain Card */}
-                    <div className="glass rounded-3xl p-8 border-red-500/20 relative overflow-hidden group">
-                      <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <AlertCircle className="w-24 h-24 text-red-500" />
-                      </div>
-                      <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6">
-                        <AlertCircle className="text-red-500 w-6 h-6" />
-                      </div>
-                      <h3 className="text-2xl font-bold mb-6 text-red-100">{t.why.pain.title}</h3>
-                      <p className="text-soft-white/60 leading-relaxed text-lg">
-                        {t.why.pain.desc}
-                      </p>
-                    </div>
-
-                    {/* Solution Card */}
-                    <div className="glass rounded-3xl p-8 border-gold/30 relative overflow-hidden">
-                      <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center mb-6">
-                        <Cpu className="text-gold w-6 h-6" />
-                      </div>
-                      <h3 className="text-2xl font-bold mb-8 text-gold-light">{t.why.solution.title}</h3>
-                      
-                      <div className="space-y-8">
-                        {t.why.solution.points.map((point, i) => (
-                          <div key={i} className="relative pl-8 border-l border-gold/20">
-                            <div className="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gold shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
-                            <h4 className="font-bold text-soft-white mb-2">{point.label}</h4>
-                            <p className="text-soft-white/60 text-sm leading-relaxed">{point.desc}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+            <div className="overflow-hidden">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-12">
+                {/* Pain Card */}
+                <div className="glass rounded-3xl p-8 border-red-500/20 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <AlertCircle className="w-24 h-24 text-red-500" />
                   </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <div className="w-12 h-12 rounded-2xl bg-red-500/10 flex items-center justify-center mb-6">
+                    <AlertCircle className="text-red-500 w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-6 text-red-100">{t.why.pain.title}</h3>
+                  <p className="text-soft-white/60 leading-relaxed text-lg">
+                    {t.why.pain.desc}
+                  </p>
+                </div>
+
+                {/* Solution Card */}
+                <div className="glass rounded-3xl p-8 border-gold/30 relative overflow-hidden">
+                  <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center mb-6">
+                    <Cpu className="text-gold w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-8 text-gold-light">{t.why.solution.title}</h3>
+                  
+                  <div className="space-y-8">
+                    {t.why.solution.points.map((point, i) => (
+                      <div key={i} className="relative pl-8 border-l border-gold/20">
+                        <div className="absolute -left-1.5 top-1.5 w-3 h-3 rounded-full bg-gold shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
+                        <h4 className="font-bold text-soft-white mb-2">{point.label}</h4>
+                        <p className="text-soft-white/60 text-sm leading-relaxed">{point.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -259,42 +208,26 @@ const AppContent: React.FC = () => {
         <section className="py-24 px-6 bg-midnight/80">
           <div className="max-w-screen-2xl mx-auto">
             <div 
-              className="cursor-pointer group flex flex-col items-center justify-center mb-16"
-              onClick={() => toggleSection('pillars')}
+              className="flex flex-col items-center justify-center mb-16"
             >
-              <h2 className="text-3xl font-serif text-center">{t.pillars.title}</h2>
-              <motion.div
-                animate={{ rotate: expanded.pillars ? 180 : 0 }}
-                className="mt-4 text-gold/40 group-hover:text-gold"
-              >
-                <ChevronRight className="w-8 h-8 rotate-90" />
-              </motion.div>
+              <h2 className="text-3xl font-serif text-center text-soft-white">{t.pillars.title}</h2>
             </div>
             
-            <AnimatePresence>
-              {expanded.pillars && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  className="overflow-hidden"
-                >
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
-                    {t.pillars.items.map((pillar, i) => (
-                      <motion.div 
-                        key={i}
-                        whileHover={{ y: -5 }}
-                        className="glass rounded-3xl p-8 flex flex-col gap-4 group"
-                      >
-                        <div className="text-4xl mb-2">{pillar.icon}</div>
-                        <h3 className="text-xl font-bold text-gold-light group-hover:text-gold transition-colors">{pillar.title}</h3>
-                        <p className="text-soft-white/60 text-sm leading-relaxed">{pillar.desc}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <div className="overflow-hidden">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-12">
+                {t.pillars.items.map((pillar, i) => (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ y: -5 }}
+                    className="glass rounded-3xl p-8 flex flex-col gap-4 group"
+                  >
+                    <div className="text-4xl mb-2">{pillar.icon}</div>
+                    <h3 className="text-xl font-bold text-gold-light group-hover:text-gold transition-colors">{pillar.title}</h3>
+                    <p className="text-soft-white/60 text-sm leading-relaxed">{pillar.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -434,10 +367,10 @@ const AppContent: React.FC = () => {
       </main>
 
       <footer className="py-12 px-6 border-t border-white/5 text-center text-soft-white/40 text-xs">
-        <p>© 2024 Francis Chi - Family Office Wealth Engineer. All Rights Reserved.</p>
+        <p>{t.footer.copy}</p>
         <div className="mt-4 flex justify-center gap-6">
-          <a href="#" className="hover:text-gold transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-gold transition-colors">Terms of Service</a>
+          <a href="#" className="hover:text-gold transition-colors">{t.footer.privacy}</a>
+          <a href="#" className="hover:text-gold transition-colors">{t.footer.terms}</a>
         </div>
       </footer>
 

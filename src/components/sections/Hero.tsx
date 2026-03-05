@@ -1,12 +1,19 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
+import WorkScenes from './WorkScenes';
 
 const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) => {
+  const { t } = useLanguage();
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 text-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-40 pb-32 text-center overflow-hidden">
       {/* Background Layers */}
-      <div 
+      <motion.div 
+        initial={{ scale: 1 }}
+        animate={{ scale: 1.1 }}
+        transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
         className="absolute inset-0 z-0 opacity-20 mix-blend-overlay pointer-events-none"
         style={{
           backgroundImage: 'url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1920&q=80")',
@@ -19,35 +26,34 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/90 to-slate-900 pointer-events-none z-0" />
       
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="relative z-10 max-w-5xl mx-auto"
+        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="relative z-10 max-w-6xl mx-auto"
       >
         {/* Main Headline */}
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-8 tracking-tight">
           <span className="bg-gradient-to-b from-gold-light via-gold to-gold bg-clip-text text-transparent">
-            用芯片級的精密度，
+            {t.hero.title.split('，')[0]}
+            {t.hero.title.includes('，') && '，'}
           </span>
           <br />
           <span className="text-white">
-            為您構筑跨越週期的家族基業。
+            {t.hero.title.split('，')[1] || ''}
           </span>
         </h1>
+        
+        <WorkScenes />
 
         {/* Sub-headline */}
         <p className="text-gray-300 text-base md:text-xl leading-relaxed mb-12 max-w-3xl mx-auto font-light">
-          我是池望青（Francis）。從 <span className="text-gold font-medium">Intel 晶圓預處理工程師</span> 到管理規模超 <span className="text-gold font-medium">10 億美金</span> 的家族 CFO。拥有 10 年+ 跨境金融经验，持 CFA、RFP 及 香港保监局核心牌照。我不推销单一产品，我为您的家族资产编写最坚固的「底层安全代码」。
+          {t.hero.subtitle}
         </p>
         
         {/* Trust Badges */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-16">
-          {[
-            "前 Intel 資深工程師",
-            "CFA 協會會員 / RFP",
-            "香港保監局 IA 持牌人",
-            "胤源集團高級總監"
-          ].map((badge, i) => (
+          {t.hero.badges.map((badge, i) => (
             <motion.div 
               key={i}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -69,14 +75,14 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
             onClick={onOpenDiagnosis}
             className="gold-gradient text-midnight font-bold px-10 py-5 rounded-full text-lg md:text-xl shadow-2xl shadow-gold/20 flex items-center gap-3 group relative overflow-hidden"
           >
-            <span className="relative z-10">👉 領取 1680 元 VIP 專屬 3D 財富問診</span>
+            <span className="relative z-10">{t.hero.cta}</span>
             <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform relative z-10" />
             {/* Glow effect */}
             <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
           </motion.button>
           
           <p className="text-gold/60 text-xs md:text-sm font-medium uppercase tracking-[0.2em] animate-pulse">
-            每月僅限 5 位高淨值家族，打造專屬 SLA 服務協議。
+            {t.hero.limit}
           </p>
         </div>
       </motion.div>
