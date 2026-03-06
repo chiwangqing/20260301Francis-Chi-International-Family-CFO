@@ -8,6 +8,7 @@ const langOptions: { code: Language; label: string; flag: string }[] = [
   { code: 'SC', label: '简中', flag: '🇨🇳' },
   { code: 'EN', label: 'EN', flag: '🇺🇸' },
   { code: 'JP', label: '日本語', flag: '🇯🇵' },
+  { code: 'KO', label: '한국어', flag: '🇰🇷' },
 ];
 
 const Header: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) => {
@@ -95,7 +96,7 @@ const Header: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) 
                       : 'text-white/40'
                   }`}
                 >
-                  {opt.code === 'TC' ? '繁' : opt.code === 'SC' ? '简' : opt.code === 'EN' ? 'EN' : '日'}
+                  {opt.code === 'TC' ? '繁' : opt.code === 'SC' ? '简' : opt.code === 'EN' ? 'EN' : opt.code === 'JP' ? '日' : '한'}
                 </button>
               ))}
             </div>

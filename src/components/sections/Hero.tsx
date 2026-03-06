@@ -8,7 +8,7 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
   const { lang, t } = useLanguage();
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-12 pb-32 text-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-8 pb-16 text-center overflow-hidden">
       {/* Background Layers */}
       <motion.div 
         initial={{ scale: 1 }}
@@ -30,10 +30,10 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="relative z-10 max-w-6xl mx-auto"
+        className="relative z-10 max-w-screen-2xl mx-auto"
       >
         {/* Main Headline */}
-        <h1 className="font-serif leading-[1.2] mb-12 tracking-tight">
+        <h1 className="font-serif leading-[1.1] mb-8 tracking-tight">
           {t.hero.title.split('\n').map((line, index, allLines) => {
             const isTagline = allLines.length > 2 && index === 0;
             const isName = (allLines.length > 2 && index === 1) || (allLines.length <= 2 && index === 0);
@@ -41,7 +41,7 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
 
             if (isTagline) {
               return (
-                <span key={index} className="text-gold/80 block mb-6 text-base sm:text-xl md:text-3xl lg:text-4xl font-medium max-w-4xl mx-auto leading-relaxed px-4">
+                <span key={index} className="text-gold/80 block mb-4 text-xl sm:text-3xl md:text-5xl lg:text-6xl font-medium max-w-6xl mx-auto leading-relaxed px-4">
                   {line}
                 </span>
               );
@@ -49,43 +49,45 @@ const Hero: React.FC<{ onOpenDiagnosis: () => void }> = ({ onOpenDiagnosis }) =>
 
             if (isName) {
               return (
-                <span key={index} className="bg-gradient-to-b from-gold-light via-gold to-gold bg-clip-text text-transparent block mb-8 text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold">
+                <span key={index} className="bg-gradient-to-b from-gold-light via-gold to-gold bg-clip-text text-transparent block mb-6 text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold">
                   {line}
                 </span>
               );
             }
             
             const segments = line.split(/[╳╳]/);
-            const keywords = ['醫生', '工程師', '翻譯官', 'Doctor', 'Engineer', 'Interpreter', 'ドクター', 'エンジニア', '通訳官', '医生', '工程师', '翻译官'];
+            const keywords = ['醫生', '工程師', '翻譯官', 'Doctor', 'Engineer', 'Interpreter', 'ドクター', 'エンジニア', '通訳官', '医生', '工程师', '翻译官', '주치의', '엔지니어', '통역관'];
             const regex = new RegExp(`(${keywords.join('|')})`, 'g');
 
-            const isEnOrJp = lang === 'EN' || lang === 'JP';
+            const isEnJpKo = lang === 'EN' || lang === 'JP' || lang === 'KO';
 
             return (
-              <span key={index} className={`text-white/90 font-light block mt-8 leading-tight tracking-wide ${isEnOrJp ? 'text-sm sm:text-2xl md:text-4xl lg:text-5xl' : 'text-xl sm:text-2xl md:text-4xl lg:text-5xl'}`}>
-                <div className={`flex ${isEnOrJp ? 'flex-row flex-wrap' : 'flex-col md:flex-row'} items-center justify-center gap-y-2 md:gap-y-0 gap-x-2 md:gap-x-0`}>
+              <span key={index} className={`text-white/90 font-light block mt-6 leading-tight tracking-wide ${isEnJpKo ? 'text-lg sm:text-4xl md:text-6xl lg:text-7xl' : 'text-3xl sm:text-4xl md:text-6xl lg:text-7xl'}`}>
+                <div className={`flex ${isEnJpKo ? 'flex-row flex-wrap' : 'flex-col md:flex-row'} items-center justify-center gap-y-2 md:gap-y-0 gap-x-2 md:gap-x-0`}>
                   {segments.map((segment, i) => {
                     const parts = segment.trim().split(regex);
                     const keyword = parts.find(p => keywords.includes(p));
                     const prefix = segment.includes('您的家庭') ? '您的家庭' : 
                                  segment.includes('Your Family') ? 'Your Family' : 
-                                 segment.includes('あなたの家庭') ? 'あなたの家庭の' : '';
+                                 segment.includes('あなたの家庭') ? 'あなたの家庭の' :
+                                 segment.includes('당신의 가정') ? '당신의 가정' : '';
                     const wealth = segment.includes('財富') ? '財富' : 
                                  segment.includes('财富') ? '财富' : 
-                                 segment.includes('Wealth') ? 'Wealth ' : '';
+                                 segment.includes('Wealth') ? 'Wealth ' :
+                                 segment.includes('부의') ? '부의 ' : '';
 
                     return (
                       <React.Fragment key={i}>
                         {i > 0 && (
-                          <span className={`${isEnOrJp ? 'inline' : 'md:hidden block'} text-gold/40 my-1 text-xl font-light`}>
-                            {isEnOrJp ? '╳' : '×'}
+                          <span className={`${isEnJpKo ? 'inline' : 'md:hidden block'} text-gold/40 my-1 text-xl font-light`}>
+                            {isEnJpKo ? '╳' : '×'}
                           </span>
                         )}
                         
                         <div className="flex flex-col md:flex-row items-center">
                           {i === 0 && prefix ? (
                             <>
-                              <span className={`${isEnOrJp ? 'inline' : 'block md:inline'} mb-1 md:mb-0`}>{prefix}</span>
+                              <span className={`${isEnJpKo ? 'inline' : 'block md:inline'} mb-1 md:mb-0`}>{prefix}</span>
                               <div className="flex items-center">
                                 <span className="md:inline">{wealth}</span>
                                 <span className="text-gold-light font-black inline-block mx-1 drop-shadow-[0_0_20px_rgba(212,175,55,0.6)] scale-110">

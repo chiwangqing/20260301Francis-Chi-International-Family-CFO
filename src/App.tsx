@@ -63,7 +63,7 @@ const AppContent: React.FC = () => {
         <QualificationsBar />
 
         {/* 5. Service Pillars (Section B) */}
-        <section id="pillars" className="py-24 px-6 bg-midnight/80">
+        <section id="pillars" className="py-16 px-6 bg-midnight/80">
           <div className="max-w-screen-2xl mx-auto">
             <div 
               className="flex flex-col items-center justify-center mb-20"
@@ -118,7 +118,7 @@ const AppContent: React.FC = () => {
         <CoreValues />
 
         {/* 3. The 'Why' Section */}
-        <section id="why" className="py-24 px-6 bg-midnight/50">
+        <section id="why" className="py-16 px-6 bg-midnight/50">
           <div className="max-w-screen-2xl mx-auto">
             <div 
               className="flex flex-col items-center justify-center mb-16"
@@ -167,7 +167,7 @@ const AppContent: React.FC = () => {
         </section>
 
         {/* 4. 3D Diagnosis (Section A) */}
-        <section id="diagnosis" className="py-24 px-6 relative overflow-hidden">
+        <section id="diagnosis" className="py-16 px-6 relative overflow-hidden">
           <div className="max-w-screen-2xl mx-auto flex flex-col items-center">
             <h2 className="text-3xl md:text-4xl font-serif text-center mb-6">{t.diagnosis.title}</h2>
             <p className="text-soft-white/60 text-center max-w-2xl mb-16 leading-relaxed">
@@ -233,7 +233,7 @@ const AppContent: React.FC = () => {
         </section>
 
         {/* 6. Special Offers (Section C) */}
-        <section id="top3" className="py-24 px-6">
+        <section id="top3" className="py-16 px-6">
           <div className="max-w-screen-2xl mx-auto">
             <div 
               className="flex flex-col items-center justify-center mb-16"
@@ -294,7 +294,7 @@ const AppContent: React.FC = () => {
         </section>
 
         {/* 7. VIP 8 Major Privileges (Section D) */}
-        <section id="vip" className="py-24 px-6 bg-gradient-to-b from-midnight to-black relative z-50">
+        <section id="vip" className="py-16 px-6 bg-gradient-to-b from-midnight to-black relative z-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-serif text-gold-light mb-4">{t.pricing.title}</h2>

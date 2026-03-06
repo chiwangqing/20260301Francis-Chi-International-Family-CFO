@@ -10,7 +10,7 @@ const CoreValues: React.FC = () => {
   const [uniqueValueExpanded, setUniqueValueExpanded] = useState(false);
 
   return (
-    <section id="core-values" className="py-24 px-6 bg-midnight/30 relative overflow-hidden">
+    <section id="core-values" className="py-16 px-6 bg-midnight/30 relative overflow-hidden">
       <div className="max-w-screen-2xl mx-auto relative z-10">
         <div 
           className="flex flex-col items-center justify-center mb-16"

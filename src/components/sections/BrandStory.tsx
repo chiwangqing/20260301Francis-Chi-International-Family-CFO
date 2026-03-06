@@ -7,7 +7,7 @@ const BrandStory: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="brand-story" className="py-24 px-6 relative overflow-hidden">
+    <section id="brand-story" className="py-16 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
